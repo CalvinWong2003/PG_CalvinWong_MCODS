@@ -7,6 +7,11 @@ public class InventoryBar : MonoBehaviour
 {
     public string[] inventory = new string[5];
     public Image[] slotImages;
+    //public Image Slot_1;
+    //public Image Slot_2;
+    //public Image Slot_3;
+    //public Image Slot_4;
+    //public Image Slot_5;
     private int selectedSlot = 0;
 
     // Start is called before the first frame update
