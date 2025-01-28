@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CW_MedKit : CW_InventoryItems
+public class CW_MedKit : MonoBehaviour
 {
+    private string name;
+    private string description;
     private float healAmount;
     private float numberOfUses;
 
     internal void useMedKit()
     {
-        if(Input.GetKey(KeyCode.I))
-        {
-            Debug.Log("Using MedKit to heal myself");
-        }
+        Debug.Log("Using MedKit to heal myself");
     }
     internal void MedKitAttributes(string name, string description, float healAmount, float numberOfUses)
     {

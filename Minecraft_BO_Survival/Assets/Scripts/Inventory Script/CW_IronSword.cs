@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CW_IronSword : CW_InventoryItems
+public class CW_IronSword : MonoBehaviour
 {
+    private string name;
+    private string description;
     private float attackPower;
     private float durability;
 
     internal void swingSword()
     {
-        if(Input.GetKey(KeyCode.U))
-        {
-            Debug.Log("Swinging sword!");
-        }
+        Debug.Log("Swinging sword!");
     }
 
     internal void swordAttributes(string name, string description, float attackPower, float durability)

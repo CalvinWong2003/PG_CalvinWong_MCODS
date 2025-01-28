@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CW_ArmorPlating : CW_InventoryItems
+public class CW_ArmorPlating : MonoBehaviour
 {
+    private string name;
+    private string description;
     private float armorAmount;
     private float numberOfUses;
 
     internal void useArmorPlating()
     {
-        if(Input.GetKey(KeyCode.O))
-        {
-            Debug.Log("Using armor plating to reinforce myself");
-        }
+        Debug.Log("Using armor plating to reinforce myself");
     }
     internal void armorPlatingAttributes(string name, string description, float armorAmount, float numberOfUses)
     {
