@@ -354,7 +354,12 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/CameraMovement.cs"
 "Assets/Scripts/CharacterControllerScript.cs"
-"Assets/Scripts/Inventory Bar.cs"
+"Assets/Scripts/Inventory Script/CW_ArmorPlating.cs"
+"Assets/Scripts/Inventory Script/CW_Inventory.cs"
+"Assets/Scripts/Inventory Script/CW_InventoryItems.cs"
+"Assets/Scripts/Inventory Script/CW_IronSword.cs"
+"Assets/Scripts/Inventory Script/CW_MedKit.cs"
+"Assets/Scripts/Inventory Script/Inventory Bar.cs"
 "Assets/Scripts/PlayerHealthArmor.cs"
 -langversion:9.0
 /deterministic
