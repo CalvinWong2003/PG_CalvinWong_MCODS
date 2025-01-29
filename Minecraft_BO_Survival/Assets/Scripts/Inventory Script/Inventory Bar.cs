@@ -39,6 +39,11 @@ public class InventoryBar : MonoBehaviour
             SelectSlot(4);
         }
 
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            
+        }
+
         UpdateInventoryUI();
     }
 
