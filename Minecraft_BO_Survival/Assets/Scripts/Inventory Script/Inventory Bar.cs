@@ -11,107 +11,76 @@ public class InventoryBar : MonoBehaviour
     public Image Slot_3;
     public Image Slot_4;
 
-    //References to the item scripts
-    public CW_IronSword ironSword;
-    public CW_ArmorPlating ironChestPlate;
-    public CW_MedKit medicalKit;
-    public CW_HandGrenade handGrenade;
+    //Color change when selected
+    private Color defaultColor = Color.white;
+    private Color selectedColor = Color.green;
+    private Image selectedSlot = null;
+    private MonoBehaviour selectedItemScript = null;
 
-    private int selectedSlot = 1;
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SelectSlot(1);
+            SelectSlot(Slot_1, Slot_1.GetComponent<CW_IronSword>());
         }
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SelectSlot(2);
+            SelectSlot(Slot_2, Slot_2.GetComponent<CW_ArmorPlating>());
         }
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SelectSlot(3);
+            SelectSlot(Slot_3, Slot_3.GetComponent<CW_MedKit>());
         }
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            SelectSlot(4);
+            SelectSlot(Slot_4, Slot_4.GetComponent<CW_HandGrenade>());
         }
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && selectedItemScript != null)
         {
-            
+            UseSelectedItem();
         }
-
-        UpdateInventoryUI();
     }
 
-    void SelectSlot(int slot)
+    void SelectSlot(Image slot, MonoBehaviour itemScript)
     {
+        if(selectedSlot == slot)
+        {
+            return;
+        }
+        DeselectAllSlots();
         selectedSlot = slot;
-
-        UpdateInventoryUI();
+        selectedItemScript = itemScript;
+        selectedSlot.color = selectedColor;
     }
 
-    void UpdateInventoryUI()
+    void DeselectAllSlots()
     {
-        Slot_1.sprite = null;
-        Slot_2.sprite = null;
-        Slot_3.sprite = null;
-        Slot_4.sprite = null;
-
-        switch(selectedSlot)
-        {
-            case 1:
-                Slot_1.sprite = ironSword != null ? ironSword.GetComponent<SpriteRenderer>().sprite : null;
-                break;
-            
-            case 2:
-                Slot_2.sprite = ironChestPlate != null ? ironChestPlate.GetComponent<SpriteRenderer>().sprite : null;
-                break;
-            
-            case 3:
-                Slot_3.sprite = medicalKit != null ? medicalKit.GetComponent<SpriteRenderer>().sprite : null;
-                break;
-            
-            case 4:
-                Slot_4.sprite = handGrenade != null ? handGrenade.GetComponent<SpriteRenderer>().sprite : null;
-                break;
-        }
+        Slot_1.color = defaultColor;
+        Slot_2.color = defaultColor;
+        Slot_3.color = defaultColor;
+        Slot_4.color = defaultColor;
     }
 
     void UseSelectedItem()
     {
-        switch(selectedSlot)
+        if(selectedItemScript is CW_IronSword ironSword)
         {
-            case 1:
-                if(ironSword != null)
-                {
-                    ironSword.swingSword();
-                }
-                break;
-                
-            case 2:
-                if(ironChestPlate != null)
-                {
-                    ironChestPlate.useArmorPlating();
-                }
-                break;
-
-            case 3:
-                if(medicalKit != null)
-                {
-                    medicalKit.useMedKit();
-                }
-                break;
-
-            case 4:
-                if(handGrenade != null)
-                {
-                    handGrenade.useHandGrenade();
-                }
-                break;
+            ironSword.swingSword();
+        }
+        else if(selectedItemScript is CW_ArmorPlating ironChestPlate)
+        {
+            ironChestPlate.useArmorPlating();
+        }
+        else if(selectedItemScript is CW_MedKit medicalKit)
+        {
+            medicalKit.useMedKit();
+        }
+        else if(selectedItemScript is CW_HandGrenade handGrenade)
+        {
+            handGrenade.useHandGrenade();
         }
     }
 }
