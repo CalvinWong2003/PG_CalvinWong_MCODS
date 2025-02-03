@@ -35,7 +35,7 @@ public class InventoryBar : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            SelectSlot(Slot_4, Slot_4.GetComponent<CW_HandGrenade>());
+            SelectSlot(Slot_4, Slot_4.GetComponent<CW_StickyHandGrenade>());
         }
 
         if(Input.GetKeyDown(KeyCode.E) && selectedItemScript != null)
@@ -78,7 +78,7 @@ public class InventoryBar : MonoBehaviour
         {
             medicalKit.useMedKit();
         }
-        else if(selectedItemScript is CW_HandGrenade handGrenade)
+        else if(selectedItemScript is CW_StickyHandGrenade handGrenade)
         {
             handGrenade.useHandGrenade();
         }

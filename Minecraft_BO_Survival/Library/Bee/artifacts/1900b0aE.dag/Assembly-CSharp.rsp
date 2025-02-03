@@ -355,9 +355,9 @@
 "Assets/Scripts/CameraMovement.cs"
 "Assets/Scripts/CharacterControllerScript.cs"
 "Assets/Scripts/Inventory Script/CW_ArmorPlating.cs"
-"Assets/Scripts/Inventory Script/CW_HandGrenade.cs"
 "Assets/Scripts/Inventory Script/CW_IronSword.cs"
 "Assets/Scripts/Inventory Script/CW_MedKit.cs"
+"Assets/Scripts/Inventory Script/CW_StickyHandGrenade.cs"
 "Assets/Scripts/Inventory Script/Inventory Bar.cs"
 "Assets/Scripts/PlayerHealthArmor.cs"
 -langversion:9.0
