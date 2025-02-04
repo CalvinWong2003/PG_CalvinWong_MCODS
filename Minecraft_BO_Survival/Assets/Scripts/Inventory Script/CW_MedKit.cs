@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CW_MedKit : MonoBehaviour
+public class CW_MedKit : MonoBehaviour, IUsable
 {
     private string name;
     private string description;
@@ -19,5 +19,10 @@ public class CW_MedKit : MonoBehaviour
         description = "A medical kit containing medical supplements, used to heal the wounded";
         healAmount = 50f;
         numberOfUses = 2;
+    }
+
+    public void use()
+    {
+        useMedKit();
     }
 }

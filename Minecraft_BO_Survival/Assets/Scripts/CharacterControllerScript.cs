@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,21 +8,41 @@ public class CharacterControllerScript : MonoBehaviour
 {
     public float speed = 5f;
 
-    public float jumpForce = 10f;
-    private bool isGrounded = false;
+
+
     private Rigidbody rb;
+    IUsable currentObject;
+    List<IUsable> allObjects;
+    int currentObjectIndex = 0;
+    I_InventoryBar currentSlot;
+    List<I_InventoryBar> allSlots;
+    int currentSlotIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        allObjects = GetComponents<IUsable>().ToList();
         rb = GetComponent<Rigidbody>();
+        allSlots = GetComponents<I_InventoryBar>().ToList();
+        currentObject = allObjects[currentObjectIndex];
+        currentSlot = allSlots[currentSlotIndex];
     }
     private void Update()
     {
-        MovePlayer();
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if ( Input.GetKeyDown(KeyCode.Space))
+
         {
-            Jump();
+            currentObjectIndex += 1;
+            currentObjectIndex = currentObjectIndex % allObjects.Count;
+            currentObject = allObjects[currentObjectIndex];
+
+            
+        }
+        MovePlayer();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            currentObject.use();
         }
     }
     private void MovePlayer()
@@ -41,28 +62,6 @@ public class CharacterControllerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.position -= transform.right * speed * Time.deltaTime;
-        }
-    }
-    void Jump()
-    {
-        //Apply a force upwards to make the player jump
-        rb.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
-        isGrounded = false;
-    }
-    void OnCollisionEnter(Collision collision)
-    {
-        //Check if the collision is with a ground object
-        if(collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-    void OnCollisionExit(Collision collision)
-    {
-        //Check if the collision is with a ground object
-        if(collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
         }
     }
 }
