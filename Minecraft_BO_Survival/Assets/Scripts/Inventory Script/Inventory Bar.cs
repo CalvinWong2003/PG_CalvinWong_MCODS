@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryBar : MonoBehaviour
+public class InventoryBar : MonoBehaviour, I_InventoryBar
 {
     //References to the Image components for the 4 inventory slots
     public Image Slot_1;
@@ -19,7 +19,7 @@ public class InventoryBar : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void UpdateInventory()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -35,7 +35,7 @@ public class InventoryBar : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            SelectSlot(Slot_4, Slot_4.GetComponent<CW_StickyHandGrenade>());
+            SelectSlot(Slot_4, Slot_4.GetComponent<CW_HandGrenade>());
         }
 
         if(Input.GetKeyDown(KeyCode.E) && selectedItemScript != null)
@@ -78,9 +78,14 @@ public class InventoryBar : MonoBehaviour
         {
             medicalKit.useMedKit();
         }
-        else if(selectedItemScript is CW_StickyHandGrenade handGrenade)
+        else if(selectedItemScript is CW_HandGrenade handGrenade)
         {
             handGrenade.useHandGrenade();
         }
+    }
+
+    public void useSlot()
+    {
+        UpdateInventory();
     }
 }
