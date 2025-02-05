@@ -192,7 +192,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2335833562195760137, guid: b9c04f370186caa419d49772f0c7a5d7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1911494059}
+      addedObject: {fileID: 1911494061}
   m_SourcePrefab: {fileID: 100100000, guid: b9c04f370186caa419d49772f0c7a5d7, type: 3}
 --- !u!4 &154214033 stripped
 Transform:
@@ -925,6 +925,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 1211545971}
+--- !u!114 &1178374706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3351821638307485803, guid: 08023a424cc39dd4dabd2ad21d5eee7e, type: 3}
+  m_PrefabInstance: {fileID: 481208656}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1211545970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,6 +1062,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  Blue: {fileID: 1886857072}
+  Green: {fileID: 1178374706}
+  maxhealth: 100
+  maxArmor: 100
+  Slot_1: {fileID: 1375188318}
+  Slot_2: {fileID: 263477046}
+  Slot_3: {fileID: 2141616035}
+  Slot_4: {fileID: 788452695}
 --- !u!114 &1211545976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,43 +1612,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6732023023073513938, guid: c2bf99e605b25464eb33b807f676a1ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 154214033}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 287439882189859066, guid: c2bf99e605b25464eb33b807f676a1ec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1848592667}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2bf99e605b25464eb33b807f676a1ec, type: 3}
 --- !u!224 &1848592665 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 965545377279927194, guid: c2bf99e605b25464eb33b807f676a1ec, type: 3}
   m_PrefabInstance: {fileID: 1848592664}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1848592666 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 287439882189859066, guid: c2bf99e605b25464eb33b807f676a1ec, type: 3}
-  m_PrefabInstance: {fileID: 1848592664}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1848592667
+--- !u!114 &1886857072 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6698598597507173202, guid: 08023a424cc39dd4dabd2ad21d5eee7e, type: 3}
+  m_PrefabInstance: {fileID: 481208656}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848592666}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9615d5f31a43c14c805a80b0dc83a07, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slot_1: {fileID: 1375188318}
-  Slot_2: {fileID: 263477046}
-  Slot_3: {fileID: 2141616035}
-  Slot_4: {fileID: 788452695}
 --- !u!1 &1911494055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2335833562195760137, guid: b9c04f370186caa419d49772f0c7a5d7, type: 3}
   m_PrefabInstance: {fileID: 154214032}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1911494059
+--- !u!114 &1911494061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1642,7 +1648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 4356668547043171501, guid: 42d1c1dab5c2d614a8e904dd8abc51b9, type: 3}
-  throwForce: 10
+  throwForce: 100
 --- !u!1 &1990442278
 GameObject:
   m_ObjectHideFlags: 0

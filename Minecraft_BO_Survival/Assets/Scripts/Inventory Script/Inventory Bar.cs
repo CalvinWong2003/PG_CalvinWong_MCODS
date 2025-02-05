@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryBar : MonoBehaviour, I_InventoryBar
+public class InventoryBar : MonoBehaviour
 {
     //References to the Image components for the 4 inventory slots
     public Image Slot_1;
@@ -19,7 +19,7 @@ public class InventoryBar : MonoBehaviour, I_InventoryBar
 
 
     // Update is called once per frame
-    void UpdateInventory()
+    void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -82,10 +82,5 @@ public class InventoryBar : MonoBehaviour, I_InventoryBar
         {
             handGrenade.useHandGrenade();
         }
-    }
-
-    public void useSlot()
-    {
-        UpdateInventory();
     }
 }
