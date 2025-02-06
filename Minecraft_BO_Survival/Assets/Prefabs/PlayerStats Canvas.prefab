@@ -312,7 +312,6 @@ GameObject:
   - component: {fileID: 8261866978616043234}
   - component: {fileID: 2667990982315106478}
   - component: {fileID: 2174465622342165159}
-  - component: {fileID: 414491248096300627}
   m_Layer: 5
   m_Name: PlayerStats Canvas
   m_TagString: Untagged
@@ -408,26 +407,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &414491248096300627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5637122482319021998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a6a5e1e47bba34ca7aeea3a9aa8cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armorBorder: {fileID: 5553715752196178277}
-  Gray: {fileID: 5733893493743770816}
-  Blue: {fileID: 6698598597507173202}
-  healthBorder: {fileID: 3765503444614934149}
-  Red: {fileID: 2498212828952220546}
-  Green: {fileID: 3351821638307485803}
-  maxArmor: 100
-  maxHealth: 100
 --- !u!1 &7298897238393502538
 GameObject:
   m_ObjectHideFlags: 0

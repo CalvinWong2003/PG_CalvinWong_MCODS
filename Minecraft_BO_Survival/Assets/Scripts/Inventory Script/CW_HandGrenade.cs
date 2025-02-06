@@ -10,7 +10,6 @@ public class CW_HandGrenade : MonoBehaviour,IUsable
     private float numberOfUses;
 
     public GameObject grenadePrefab;
-   // public Transform attackPoint;
     public float throwForce = 100f;
 
     private GameObject spawnedGrenade;

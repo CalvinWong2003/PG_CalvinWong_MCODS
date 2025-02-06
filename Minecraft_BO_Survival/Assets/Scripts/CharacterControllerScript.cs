@@ -9,15 +9,6 @@ public class CharacterControllerScript : MonoBehaviour
 {
     public float speed = 5f;
 
-    //References to the Image components for the armor and health bar
-    public Image Blue;
-    public Image Green;
-
-    private int currentHealth;
-    public int maxhealth = 100;
-    private int currentArmor;
-    public int maxArmor = 100;
-
     //References to the Image components for the 4 inventory slots
     public Image Slot_1;
     public Image Slot_2;
@@ -39,9 +30,9 @@ public class CharacterControllerScript : MonoBehaviour
     {
         allObjects = GetComponents<IUsable>().ToList();
         rb = GetComponent<Rigidbody>();
-        //currentObject = allObjects[currentObjectIndex];
+        currentObject = allObjects[currentObjectIndex];
     }
-    private void Update()
+    void Update()
     {
         if ( Input.GetKeyDown(KeyCode.Space))
         {
@@ -122,14 +113,6 @@ public class CharacterControllerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.position -= transform.right * speed * Time.deltaTime;
-        }
-    }
-
-    public void TakeDamage(int damage)
-    {
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-
         }
     }
 }
