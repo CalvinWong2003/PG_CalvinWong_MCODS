@@ -352,6 +352,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/CW_DefaultGun.cs"
 "Assets/Scripts/CameraMovement.cs"
 "Assets/Scripts/CharacterControllerScript.cs"
 "Assets/Scripts/Inventory Script/CW_ArmorPlating.cs"
@@ -360,7 +361,6 @@
 "Assets/Scripts/Inventory Script/CW_MedKit.cs"
 "Assets/Scripts/Inventory Script/Inventory Bar.cs"
 "Assets/Scripts/IUsable.cs"
-"Assets/Scripts/I_InventoryBar.cs"
 "Assets/Scripts/PlayerHealthArmor.cs"
 -langversion:9.0
 /deterministic

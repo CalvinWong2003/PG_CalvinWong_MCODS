@@ -12,39 +12,42 @@ public class InventoryBar : MonoBehaviour
     public Image Slot_4;
 
     //Color change when selected
-    private Color defaultColor = Color.white;
-    private Color selectedColor = Color.green;
+    private Color defaultColor = Color.gray;
+    private Color selectedColor = Color.white;
     private Image selectedSlot = null;
-    private MonoBehaviour selectedItemScript = null;
+    CharacterControllerScript thePlayer;
 
+    private void Start()
+    {
+        thePlayer =FindObjectOfType<CharacterControllerScript>();
+    }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SelectSlot(Slot_1, Slot_1.GetComponent<CW_IronSword>());
+            SelectSlot(Slot_1, 1);
         }
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SelectSlot(Slot_2, Slot_2.GetComponent<CW_ArmorPlating>());
+            SelectSlot(Slot_2, 2);
         }
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SelectSlot(Slot_3, Slot_3.GetComponent<CW_MedKit>());
+            SelectSlot(Slot_3, 3);
         }
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            SelectSlot(Slot_4, Slot_4.GetComponent<CW_HandGrenade>());
+            SelectSlot(Slot_4, 4);
         }
-
-        if(Input.GetKeyDown(KeyCode.E) && selectedItemScript != null)
+        if(Input.GetKeyDown(KeyCode.Alpha0))
         {
-            UseSelectedItem();
+            DeselectAllSlots();
         }
     }
 
-    void SelectSlot(Image slot, MonoBehaviour itemScript)
+    void SelectSlot(Image slot, int objectIndex)
     {
         if(selectedSlot == slot)
         {
@@ -52,8 +55,8 @@ public class InventoryBar : MonoBehaviour
         }
         DeselectAllSlots();
         selectedSlot = slot;
-        selectedItemScript = itemScript;
         selectedSlot.color = selectedColor;
+        thePlayer.selectItem(objectIndex);
     }
 
     void DeselectAllSlots()
@@ -62,25 +65,5 @@ public class InventoryBar : MonoBehaviour
         Slot_2.color = defaultColor;
         Slot_3.color = defaultColor;
         Slot_4.color = defaultColor;
-    }
-
-    void UseSelectedItem()
-    {
-        if(selectedItemScript is CW_IronSword ironSword)
-        {
-            ironSword.swingSword();
-        }
-        else if(selectedItemScript is CW_ArmorPlating ironChestPlate)
-        {
-            ironChestPlate.useArmorPlating();
-        }
-        else if(selectedItemScript is CW_MedKit medicalKit)
-        {
-            medicalKit.useMedKit();
-        }
-        else if(selectedItemScript is CW_HandGrenade handGrenade)
-        {
-            handGrenade.useHandGrenade();
-        }
     }
 }
