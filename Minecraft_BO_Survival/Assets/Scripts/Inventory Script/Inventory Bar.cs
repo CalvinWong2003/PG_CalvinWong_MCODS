@@ -10,6 +10,7 @@ public class InventoryBar : MonoBehaviour
     public Image Slot_2;
     public Image Slot_3;
     public Image Slot_4;
+    public Image Slot_5;
 
     //Color change when selected
     private Color defaultColor = Color.gray;
@@ -41,9 +42,9 @@ public class InventoryBar : MonoBehaviour
         {
             SelectSlot(Slot_4, 4);
         }
-        if(Input.GetKeyDown(KeyCode.Alpha0))
+        if(Input.GetKeyDown(KeyCode.Alpha5))
         {
-            DeselectAllSlots();
+            SelectSlot(Slot_5, 5);
         }
     }
 

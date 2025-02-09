@@ -33,9 +33,10 @@ public class CharacterControllerScript : MonoBehaviour
 
     internal void selectItem(int index)
     {
-      currentObjectIndex = index;
+        currentObjectIndex = index;
         currentObject = allObjects[currentObjectIndex];
     }
+
     private void MovePlayer()
     {
         if (Input.GetKey(KeyCode.W))
