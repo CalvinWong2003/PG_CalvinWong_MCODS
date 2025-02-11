@@ -20,7 +20,7 @@ public class CW_ShootingScript : MonoBehaviour, IUsable
     public int magazineCapacity = 30;
 
     [Tooltip("Time (in seconds) between shots when holding down the fire button.")]
-    public float fireRate = 0.1f;
+    public float fireRate = 12.5f;
 
     private int currentAmmo;
     private float nextFireRate;
