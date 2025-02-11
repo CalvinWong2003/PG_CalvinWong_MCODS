@@ -29,32 +29,22 @@ public class PlayerHealthArmor : MonoBehaviour
         UpdateBars();
     }
 
-    void Update()
-    {
-        if(Input.GetKey(KeyCode.H))
-        {
-            TakeDamage(20);
-        }
-    }
-
     public void TakeDamage(float damage)
     {
         if(currentArmor > 0)
         {
-            if(currentArmor - damage > 0)
-            {
-                currentArmor -= damage;
-            }
-            else
-            {
-                damage -= currentArmor;
-                currentArmor = 0;
-                currentHealth -= damage;
-            }
+            float armorDamage = Mathf.Min(damage, currentArmor);
+            currentArmor -= armorDamage;
+            damage -= armorDamage;
         }
-        else
+        if(damage > 0f)
         {
             currentHealth -= damage;
+            
+            if(currentHealth <= 0f)
+            {
+                Die();
+            }
         }
 
         UpdateBars();
@@ -67,5 +57,10 @@ public class PlayerHealthArmor : MonoBehaviour
 
         //Update the health green bar based on current health value
         Green.fillAmount = currentHealth / maxHealth;
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player has died! Game Over!!!");
     }
 }

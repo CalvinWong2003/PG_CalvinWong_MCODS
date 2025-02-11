@@ -356,6 +356,7 @@
 "Assets/Scripts/CameraMovement.cs"
 "Assets/Scripts/CharacterControllerScript.cs"
 "Assets/Scripts/CW_ShootingScript.cs"
+"Assets/Scripts/EnemyScript.cs"
 "Assets/Scripts/Inventory Script/CW_ArmorPlating.cs"
 "Assets/Scripts/Inventory Script/CW_HandGrenade.cs"
 "Assets/Scripts/Inventory Script/CW_IronSword.cs"
