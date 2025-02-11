@@ -21,6 +21,7 @@ public class InventoryBar : MonoBehaviour
     private void Start()
     {
         thePlayer =FindObjectOfType<CharacterControllerScript>();
+        SelectSlot(Slot_1, 1);
     }
 
     // Update is called once per frame
@@ -66,5 +67,6 @@ public class InventoryBar : MonoBehaviour
         Slot_2.color = defaultColor;
         Slot_3.color = defaultColor;
         Slot_4.color = defaultColor;
+        Slot_5.color = defaultColor;
     }
 }
