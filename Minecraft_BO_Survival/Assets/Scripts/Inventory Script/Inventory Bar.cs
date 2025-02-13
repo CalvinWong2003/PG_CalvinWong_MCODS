@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryBar : MonoBehaviour
 {
-    //References to the Image components for the 4 inventory slots
+    //References to the Image components for the 5 inventory slots
     public Image Slot_1;
     public Image Slot_2;
     public Image Slot_3;
@@ -21,7 +21,7 @@ public class InventoryBar : MonoBehaviour
     private void Start()
     {
         thePlayer =FindObjectOfType<CharacterControllerScript>();
-        SelectSlot(Slot_1, 1);
+        SelectSlot(Slot_1, 0);
     }
 
     // Update is called once per frame
@@ -29,23 +29,23 @@ public class InventoryBar : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SelectSlot(Slot_1, 1);
+            SelectSlot(Slot_1, 0);
         }
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SelectSlot(Slot_2, 2);
+            SelectSlot(Slot_2, 1);
         }
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SelectSlot(Slot_3, 3);
+            SelectSlot(Slot_3, 2);
         }
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            SelectSlot(Slot_4, 4);
+            SelectSlot(Slot_4, 3);
         }
         if(Input.GetKeyDown(KeyCode.Alpha5))
         {
-            SelectSlot(Slot_5, 5);
+            SelectSlot(Slot_5, 4);
         }
     }
 

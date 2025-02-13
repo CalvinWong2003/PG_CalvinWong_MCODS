@@ -49,11 +49,6 @@ public class CW_HandGrenade : MonoBehaviour,IUsable
         Destroy(grenade);
     }
 
-    internal void useHandGrenade()
-    {
-        Debug.Log("Throwing Grenade!!!");
-    }
-
     internal void handGrenadeAttributes(string name, string description, float attackPower, float numberOfUses)
     {
         name = "Frag Grenade";

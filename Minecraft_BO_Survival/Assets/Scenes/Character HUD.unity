@@ -456,6 +456,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1211545971}
   speed: 1
+  damage: 10
+  attackRange: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +677,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1211545971}
   speed: 1
+  damage: 10
+  attackRange: 1
 --- !u!114 &847965540 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3765503444614934149, guid: 08023a424cc39dd4dabd2ad21d5eee7e, type: 3}
@@ -777,6 +781,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1354983736}
   - {fileID: 765832579}
   - {fileID: 1848592665}
   - {fileID: 481208657}
@@ -820,6 +825,7 @@ GameObject:
   - component: {fileID: 1211545973}
   - component: {fileID: 1211545972}
   - component: {fileID: 1211545975}
+  - component: {fileID: 1211545981}
   - component: {fileID: 1211545977}
   - component: {fileID: 1211545979}
   - component: {fileID: 1211545978}
@@ -945,6 +951,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55efcf09d0d104240ae25cee6785ce7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 25
+  attackCooldown: 1.5
+  attackRange: 1.5
+  Player: {fileID: 1211545971}
 --- !u!114 &1211545978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,6 +1001,111 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 4356668547043171501, guid: 42d1c1dab5c2d614a8e904dd8abc51b9, type: 3}
   throwForce: 10
+--- !u!114 &1211545981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211545970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a65e84e06780ed4b9ac84907b4a77cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletCloneTemplate: {fileID: 1237466866103270291, guid: 0a51e9abc4d53f24aa93df8429675037, type: 3}
+  reloadTime: 3.5
+  magazineCapacity: 30
+--- !u!1001 &1354983735
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 963194228}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.86602545
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_Name
+      value: sword01
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1354983738}
+  m_SourcePrefab: {fileID: 100100000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+--- !u!4 &1354983736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+  m_PrefabInstance: {fileID: 1354983735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1354983737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+  m_PrefabInstance: {fileID: 1354983735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1354983738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354983737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55efcf09d0d104240ae25cee6785ce7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 25
+  attackCooldown: 1.5
+  attackRange: 1.5
+  Player: {fileID: 1211545971}
 --- !u!1 &1372818496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,6 +1400,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1211545971}
   speed: 1
+  damage: 10
+  attackRange: 1
 --- !u!114 &1649474296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5733893493743770816, guid: 08023a424cc39dd4dabd2ad21d5eee7e, type: 3}
@@ -1403,6 +1520,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1286289264483116060, guid: c2bf99e605b25464eb33b807f676a1ec, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1211545971}
     - target: {fileID: 2408467431811621316, guid: c2bf99e605b25464eb33b807f676a1ec, type: 3}
       propertyPath: Blue
       value: 
@@ -1548,6 +1669,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1211545971}
   speed: 1
+  damage: 10
+  attackRange: 1
 --- !u!114 &2065390538 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5553715752196178277, guid: 08023a424cc39dd4dabd2ad21d5eee7e, type: 3}
@@ -1679,6 +1802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1211545971}
   speed: 1
+  damage: 10
+  attackRange: 1
 --- !u!1001 &5565765630764945821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1731,21 +1856,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: rifle_001
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1957395268488151753, guid: 0f9003d402e86604da8181c642f91013, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7507962851067266302, guid: 0f9003d402e86604da8181c642f91013, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5565765630764945823}
+      addedObject: {fileID: 5565765630764945826}
   m_SourcePrefab: {fileID: 100100000, guid: 0f9003d402e86604da8181c642f91013, type: 3}
 --- !u!1 &5565765630764945822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7507962851067266302, guid: 0f9003d402e86604da8181c642f91013, type: 3}
   m_PrefabInstance: {fileID: 5565765630764945821}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5565765630764945823
+--- !u!114 &5565765630764945826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1758,7 +1882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletCloneTemplate: {fileID: 1237466866103270291, guid: 0a51e9abc4d53f24aa93df8429675037, type: 3}
-  reloadTime: 5.5
+  reloadTime: 3.5
   magazineCapacity: 30
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

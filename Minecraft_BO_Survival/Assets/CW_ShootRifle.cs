@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CW_ShootRifle : MonoBehaviour
+public class CW_ShootRifle : MonoBehaviour, IUsable
 {
     public GameObject bulletCloneTemplate;
     Transform AttackPoint;
 
     [Tooltip("Time (in seconds) before you can fire again")]
-    public float reloadTime = 5.5f;
+    public float reloadTime = 3.5f;
 
     [Tooltip("Magazine capacity (number of rounds left before reload)")]
     public int magazineCapacity = 30;
@@ -28,7 +28,7 @@ public class CW_ShootRifle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L))
+        if(Input.GetMouseButtonDown(0))
         {
             if(currentAmmo > 0)
             {
@@ -70,5 +70,10 @@ public class CW_ShootRifle : MonoBehaviour
         currentAmmo = magazineCapacity;
         isReloading = false;
         Debug.Log("Reload complete! Ammo is refilled to " + currentAmmo);
+    }
+
+    public void use()
+    {
+        Shoot();
     }
 }
