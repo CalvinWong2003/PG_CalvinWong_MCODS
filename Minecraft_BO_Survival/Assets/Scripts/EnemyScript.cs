@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class EnemyScript : MonoBehaviour
     private float nextAttackTime = 0f;
     public float currentHealth;
     public float maxHealth = 100f;
+    public Image Blue;
+    public Image Green;
 
     // Start is called before the first frame update
     void Start()
@@ -48,13 +51,31 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    private void DealDamage()
+    void DealDamage()
     {
-        PlayerHealthArmor playerHealth = Player.GetComponent<PlayerHealthArmor>();
-
-        if(playerHealth != null)
+        if(Blue == null || Green == null)
         {
-            playerHealth.TakeDamage(damage);
+            Debug.LogWarning("Armor bar and/or health bar are not assigned in the Inspector");
+            return;
+        }
+
+        float remainingDamage = damage;
+        if (Blue.fillAmount > 0)
+        {
+            if (Blue.fillAmount >= remainingDamage)
+            {
+                Blue.fillAmount -= remainingDamage;
+                remainingDamage = 0;
+            }
+            else
+            {
+                remainingDamage -= Blue.fillAmount;
+                Blue.fillAmount = 0;
+            }
+        }
+        if(remainingDamage > 0)
+        {
+            Green.fillAmount = Mathf.Max(Green.fillAmount - remainingDamage, 0);
         }
     }
 
@@ -71,13 +92,48 @@ public class EnemyScript : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy down!");
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Bullet"))
         {
-            
+            float bulletDamage = 30f;
+
+            Bullet bullet = other.GetComponent<Bullet>();
+
+            if (bullet != null)
+            {
+                bulletDamage = bullet.damage;
+            }
+            TakeDamage(bulletDamage);
+            Destroy(other.gameObject);
+        }
+
+        if(other.CompareTag("Iron Sword"))
+        {
+            float swordDamage = 30f;
+
+            CW_IronSword sword = other.GetComponent<CW_IronSword>();
+            if (sword != null)
+            {
+                swordDamage = sword.attackDamage;
+            }
+            TakeDamage(swordDamage);
+            Destroy(other.gameObject);
+        }
+
+        if(other.CompareTag("Grenade"))
+        {
+            float grenadeDamage = 100f;
+
+            CW_HandGrenade grenade = other.GetComponent<CW_HandGrenade>();
+            if (grenade != null)
+            {
+                grenadeDamage = grenade.AOEdamage;
+            }
+            TakeDamage(grenadeDamage);
+            Destroy(other.gameObject);
         }
     }
 }
