@@ -22,18 +22,7 @@ public class CW_IronSword : MonoBehaviour, IUsable
     }
     void Start()
     {
-        if(Player == null)
-        {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if(playerObj != null)
-            {
-                Player = playerObj.transform;
-            }
-            else
-            {
-                Debug.LogWarning("Player not found! Please tag your player as 'Player'");
-            }
-        }
+        
     }
     void Update()
     {
@@ -43,5 +32,10 @@ public class CW_IronSword : MonoBehaviour, IUsable
     internal void swingSword()
     {
         Debug.Log("Swinging sword!");
+
+        if (Player != null)
+        {
+
+        }
     }
 }
