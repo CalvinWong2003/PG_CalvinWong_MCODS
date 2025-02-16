@@ -16,26 +16,20 @@ public class CW_IronSword : MonoBehaviour, IUsable
     [Tooltip("Origin of attack and in forward direction")]
     public Transform Player;
 
+    [Tooltip("To detect if the enemy is in range")]
+    public LayerMask enemyLayer;
+
     public void use()
     {
         swingSword();
     }
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-
-    }
-
     internal void swingSword()
     {
         Debug.Log("Swinging sword!");
-
-        if (Player != null)
+        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
+        foreach(Collider enemy in hitEnemies)
         {
-
+            enemy.GetComponent<EnemyScript>()?.TakeDamage(attackDamage);
         }
     }
 }

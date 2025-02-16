@@ -18,10 +18,32 @@ public class InventoryBar : MonoBehaviour
     private Image selectedSlot = null;
     CharacterControllerScript thePlayer;
 
+    //Items to select and activate upon selection
+    public GameObject AK47;
+    public GameObject IronSword;
+    public GameObject MedKit;
+    public GameObject handGrenade;
+
     private void Start()
     {
         thePlayer =FindObjectOfType<CharacterControllerScript>();
         SelectSlot(Slot_1, 0);
+        if(AK47 != null)
+        {
+            AK47.SetActive(true);
+        }
+        if(IronSword != null)
+        {
+            IronSword.SetActive(false);
+        }
+        if(MedKit != null)
+        {
+            MedKit.SetActive(false);
+        }
+        if(handGrenade != null)
+        {
+            handGrenade.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -30,22 +52,102 @@ public class InventoryBar : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             SelectSlot(Slot_1, 0);
+            if(AK47 != null)
+            {
+                AK47.SetActive(true);
+            }
+            if(IronSword != null)
+            {
+                IronSword.SetActive(false);
+            }
+            if(MedKit != null)
+            {
+                MedKit.SetActive(false);
+            }
+            if(handGrenade != null)
+            {
+                handGrenade.SetActive(false);
+            }
         }
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
             SelectSlot(Slot_2, 1);
+            if(AK47 != null)
+            {
+                AK47.SetActive(false);
+            }
+            if(IronSword != null)
+            {
+                IronSword.SetActive(true);
+            }
+            if(MedKit != null)
+            {
+                MedKit.SetActive(false);
+            }
+            if(handGrenade != null)
+            {
+                handGrenade.SetActive(false);
+            }
         }
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
             SelectSlot(Slot_3, 2);
+            if(AK47 != null)
+            {
+                AK47.SetActive(false);
+            }
+            if(IronSword != null)
+            {
+                IronSword.SetActive(false);
+            }
+            if(MedKit != null)
+            {
+                MedKit.SetActive(false);
+            }
+            if(handGrenade != null)
+            {
+                handGrenade.SetActive(false);
+            }
         }
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
             SelectSlot(Slot_4, 3);
+            if(AK47 != null)
+            {
+                AK47.SetActive(false);
+            }
+            if(IronSword != null)
+            {
+                IronSword.SetActive(false);
+            }
+            if(MedKit != null)
+            {
+                MedKit.SetActive(true);
+            }
+            if(handGrenade != null)
+            {
+                handGrenade.SetActive(false);
+            }
         }
         if(Input.GetKeyDown(KeyCode.Alpha5))
         {
             SelectSlot(Slot_5, 4);
+            if(AK47 != null)
+            {
+                AK47.SetActive(false);
+            }
+            if(IronSword != null)
+            {
+                IronSword.SetActive(false);
+            }
+            if(MedKit != null)
+            {
+                MedKit.SetActive(false);
+            }
+            if(handGrenade != null)
+            {
+                handGrenade.SetActive(true);
+            }
         }
     }
 

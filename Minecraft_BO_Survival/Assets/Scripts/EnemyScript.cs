@@ -109,31 +109,5 @@ public class EnemyScript : MonoBehaviour
             TakeDamage(bulletDamage);
             Destroy(other.gameObject);
         }
-
-        if(other.CompareTag("Iron Sword"))
-        {
-            float swordDamage = 30f;
-
-            CW_IronSword sword = other.GetComponent<CW_IronSword>();
-            if (sword != null)
-            {
-                swordDamage = sword.attackDamage;
-            }
-            TakeDamage(swordDamage);
-            Destroy(other.gameObject);
-        }
-
-        if(other.CompareTag("Grenade"))
-        {
-            float grenadeDamage = 100f;
-
-            CW_HandGrenade grenade = other.GetComponent<CW_HandGrenade>();
-            if (grenade != null)
-            {
-                grenadeDamage = grenade.AOEdamage;
-            }
-            TakeDamage(grenadeDamage);
-            Destroy(other.gameObject);
-        }
     }
 }
