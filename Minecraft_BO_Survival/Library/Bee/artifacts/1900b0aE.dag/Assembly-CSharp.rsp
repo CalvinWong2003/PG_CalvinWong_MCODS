@@ -357,12 +357,14 @@
 "Assets/Scripts/CharacterControllerScript.cs"
 "Assets/Scripts/CW_ShootRifle.cs"
 "Assets/Scripts/EnemyScript.cs"
+"Assets/Scripts/GameController.cs"
 "Assets/Scripts/Inventory Script/CW_ArmorPlating.cs"
 "Assets/Scripts/Inventory Script/CW_HandGrenade.cs"
 "Assets/Scripts/Inventory Script/CW_IronSword.cs"
 "Assets/Scripts/Inventory Script/CW_MedKit.cs"
 "Assets/Scripts/Inventory Script/Inventory Bar.cs"
 "Assets/Scripts/IUsable.cs"
+"Assets/Scripts/LevelSelectUI.cs"
 "Assets/Scripts/PlayerHealthArmor.cs"
 -langversion:9.0
 /deterministic

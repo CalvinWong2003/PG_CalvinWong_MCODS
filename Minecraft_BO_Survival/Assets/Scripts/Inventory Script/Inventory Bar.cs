@@ -21,6 +21,7 @@ public class InventoryBar : MonoBehaviour
     //Items to select and activate upon selection
     public GameObject AK47;
     public GameObject IronSword;
+    public GameObject ArmorPlate;
     public GameObject MedKit;
     public GameObject handGrenade;
 
@@ -35,6 +36,10 @@ public class InventoryBar : MonoBehaviour
         if(IronSword != null)
         {
             IronSword.SetActive(false);
+        }
+        if(ArmorPlate != null)
+        {
+            ArmorPlate.SetActive(false);
         }
         if(MedKit != null)
         {
@@ -60,6 +65,10 @@ public class InventoryBar : MonoBehaviour
             {
                 IronSword.SetActive(false);
             }
+            if(ArmorPlate != null)
+            {
+                ArmorPlate.SetActive(false);
+            }
             if(MedKit != null)
             {
                 MedKit.SetActive(false);
@@ -79,6 +88,10 @@ public class InventoryBar : MonoBehaviour
             if(IronSword != null)
             {
                 IronSword.SetActive(true);
+            }
+            if(ArmorPlate != null)
+            {
+                ArmorPlate.SetActive(false);
             }
             if(MedKit != null)
             {
@@ -100,6 +113,10 @@ public class InventoryBar : MonoBehaviour
             {
                 IronSword.SetActive(false);
             }
+            if(ArmorPlate != null)
+            {
+                ArmorPlate.SetActive(true);
+            }
             if(MedKit != null)
             {
                 MedKit.SetActive(false);
@@ -120,6 +137,10 @@ public class InventoryBar : MonoBehaviour
             {
                 IronSword.SetActive(false);
             }
+            if(ArmorPlate != null)
+            {
+                ArmorPlate.SetActive(false);
+            }
             if(MedKit != null)
             {
                 MedKit.SetActive(true);
@@ -139,6 +160,10 @@ public class InventoryBar : MonoBehaviour
             if(IronSword != null)
             {
                 IronSword.SetActive(false);
+            }
+            if(ArmorPlate != null)
+            {
+                ArmorPlate.SetActive(false);
             }
             if(MedKit != null)
             {

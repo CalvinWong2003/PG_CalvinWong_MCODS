@@ -11,11 +11,14 @@ public class EnemyScript : MonoBehaviour
     public float attackRange = 1f;
     private float attackCooldown = 1.0f;
     private float nextAttackTime = 0f;
+    
     public float currentHealth;
     public float maxHealth = 100f;
+    
     public Image Blue;
     public Image Green;
 
+    public int scoreValue = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +37,6 @@ public class EnemyScript : MonoBehaviour
             }
         }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -78,7 +80,6 @@ public class EnemyScript : MonoBehaviour
             Green.fillAmount = Mathf.Max(Green.fillAmount - remainingDamage, 0);
         }
     }
-
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
@@ -91,9 +92,10 @@ public class EnemyScript : MonoBehaviour
     }
     void Die()
     {
-        Debug.Log("Enemy down!");
+        GameController.Instance.AddScore(scoreValue);
         Destroy(gameObject);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Bullet"))
