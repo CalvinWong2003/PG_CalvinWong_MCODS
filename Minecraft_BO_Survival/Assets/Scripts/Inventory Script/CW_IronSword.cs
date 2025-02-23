@@ -26,8 +26,7 @@ public class CW_IronSword : MonoBehaviour, IUsable
     internal void swingSword()
     {
         Debug.Log("Swinging sword!");
-        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
-        foreach(Collider enemy in hitEnemies)
+        if(enemyLayer <= attackRange)
         {
             enemy.GetComponent<EnemyScript>()?.TakeDamage(attackDamage);
         }

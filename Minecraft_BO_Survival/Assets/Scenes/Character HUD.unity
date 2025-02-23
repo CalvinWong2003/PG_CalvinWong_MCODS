@@ -913,7 +913,7 @@ MonoBehaviour:
   Player: {fileID: 1211545971}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &1211545978
 MonoBehaviour:
   m_ObjectHideFlags: 0

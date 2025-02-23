@@ -56,7 +56,5 @@ public class CharacterControllerScript : MonoBehaviour
             transform.position -= transform.right * speed * Time.deltaTime;
         }
     }
-
-
 }
 
