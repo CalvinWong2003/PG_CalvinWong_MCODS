@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public Transform Enemy;
+    public GameObject Enemy;
     public float offset = 2.0f;
+    public Transform[] spawnPoints;
+    public float spawnRate = 3f;
 
     public static GameController Instance;
     public int score;
@@ -15,18 +17,13 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 10; i++)
-        {
-            Instantiate(Enemy, new Vector3((i * offset) - 10, 0, 8), Quaternion.identity);
-        }
-        for(int i = 0; i < 10; i++)
-        {
-            Instantiate(Enemy, new Vector3((i * offset) - 12, 0, 12), Quaternion.identity);
-        }
-        for(int i = 0; i < 10; i++)
-        {
-            Instantiate(Enemy, new Vector3((i * offset) - 14, 0, 16), Quaternion.identity);
-        }
+        InvokeRepeating("SpawnEnemy", 1f, spawnRate);
+    }
+
+    void SpawnEnemy()
+    {
+        int index = Random.Range(0, spawnPoints.Length);
+        Instantiate(Enemy, spawnPoints[index].position, Quaternion.identity);
     }
 
     void Awake()

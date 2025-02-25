@@ -28,23 +28,27 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Player != null && Time.time - nextAttackTime > attackCooldown)
+        if(Player != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, Player.position, speed * Time.deltaTime);
 
             float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
             if(distanceToPlayer <= attackRange)
             {
-                PlayerHealthArmor playerStats = Player.GetComponent<PlayerHealthArmor>();
-                if(playerStats != null)
-                {
-                    playerStats.TakeDamage(damage);
-                    nextAttackTime = Time.time;
-                }
+                AttackPlayer();
+                nextAttackTime = Time.time;
             }
         }
     }
 
+    public void AttackPlayer()
+    {
+        PlayerHealthArmor playerStats = Player.GetComponent<PlayerHealthArmor>();
+        if(playerStats != null)
+        {
+            playerStats.TakeDamage(damage);
+        }
+    }
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
