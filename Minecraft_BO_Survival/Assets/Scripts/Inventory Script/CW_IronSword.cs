@@ -13,12 +13,6 @@ public class CW_IronSword : MonoBehaviour, IUsable
     [Tooltip("Attack range of iron sword")]
     public float attackRange = 1.5f;
 
-    [Tooltip("Origin of attack and in forward direction")]
-    public Transform Player;
-
-    [Tooltip("To detect if the enemy is in range")]
-    public LayerMask enemyLayer;
-
     public void use()
     {
         swingSword();
@@ -26,9 +20,16 @@ public class CW_IronSword : MonoBehaviour, IUsable
     internal void swingSword()
     {
         Debug.Log("Swinging sword!");
-        if(enemyLayer <= attackRange)
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
         {
-            enemy.GetComponent<EnemyScript>()?.TakeDamage(attackDamage);
+            EnemyScript enemyHealth = other.GetComponent<EnemyScript>();
+            if(enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(attackDamage);
+            }
         }
     }
 }
