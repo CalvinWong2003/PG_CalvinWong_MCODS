@@ -25,10 +25,11 @@ public class InventoryBar : MonoBehaviour
     public GameObject MedKit;
     public GameObject handGrenade;
 
+    bool defaultSlotSelected = false;
     private void Start()
     {
         thePlayer =FindObjectOfType<CharacterControllerScript>();
-        SelectSlot(Slot_1, 0);
+        
         if(AK47 != null)
         {
             AK47.SetActive(true);
@@ -54,6 +55,11 @@ public class InventoryBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!defaultSlotSelected)
+        {
+            SelectSlot(Slot_1, 0);
+            defaultSlotSelected = true;
+        }
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             SelectSlot(Slot_1, 0);

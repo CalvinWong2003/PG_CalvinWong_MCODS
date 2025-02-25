@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour
 {
     public Transform Player;
+    private NavMeshAgent agent;
     public float speed = 3f;
     public float damage = 10f;
     public float attackRange = 1f;
@@ -14,76 +16,38 @@ public class EnemyScript : MonoBehaviour
     
     public float currentHealth;
     public float maxHealth = 100f;
-    
-    public Image Blue;
-    public Image Green;
 
     public int scoreValue = 20;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-
-        if(Player == null)
-        {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if(playerObj != null)
-            {
-                Player = playerObj.transform;
-            }
-            else
-            {
-                Debug.LogWarning("Player Not found! Ensure player GameObject is tagged as 'Player'");
-            }
-        }
+        agent = GetComponent<NavMeshAgent>();
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     // Update is called once per frame
     void Update()
     {
-        if(Player != null)
+        if(Player != null && Time.time - nextAttackTime > attackCooldown)
         {
             transform.position = Vector3.MoveTowards(transform.position, Player.position, speed * Time.deltaTime);
 
             float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
-            if(distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
+            if(distanceToPlayer <= attackRange)
             {
-                DealDamage();
-                nextAttackTime = Time.time + attackCooldown;
+                PlayerHealthArmor playerStats = Player.GetComponent<PlayerHealthArmor>();
+                if(playerStats != null)
+                {
+                    playerStats.TakeDamage(damage);
+                    nextAttackTime = Time.time;
+                }
             }
         }
     }
 
-    void DealDamage()
-    {
-        if(Blue == null || Green == null)
-        {
-            Debug.LogWarning("Armor bar and/or health bar are not assigned in the Inspector");
-            return;
-        }
-
-        float remainingDamage = damage;
-        if (Blue.fillAmount > 0)
-        {
-            if (Blue.fillAmount >= remainingDamage)
-            {
-                Blue.fillAmount -= remainingDamage;
-                remainingDamage = 0;
-            }
-            else
-            {
-                remainingDamage -= Blue.fillAmount;
-                Blue.fillAmount = 0;
-            }
-        }
-        if(remainingDamage > 0)
-        {
-            Green.fillAmount = Mathf.Max(Green.fillAmount - remainingDamage, 0);
-        }
-    }
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        Debug.Log("Enemy took " + damage + " damage. Remaining health: " + currentHealth);
 
         if(currentHealth <= 0)
         {
@@ -110,6 +74,17 @@ public class EnemyScript : MonoBehaviour
             }
             TakeDamage(bulletDamage);
             Destroy(other.gameObject);
+        }
+        if(other.CompareTag("Sword"))
+        {
+            float swordDamage = 20f;
+
+            CW_IronSword sword = other.GetComponent<CW_IronSword>();
+            if(sword != null)
+            {
+                swordDamage = sword.attackDamage;
+            }
+            TakeDamage(swordDamage);
         }
     }
 }
