@@ -5,15 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerHealthArmor : MonoBehaviour
 {
-    //Armor bar Images
-    public Image armorBorder;
-    public Image Gray;
+    //Player's armor and health bar
     public Image Blue;
-
-    //Health bar Images
-    public Image healthBorder;
-    public Image Red;
     public Image Green;
+
+    public GameObject Enemy;
 
     public float maxArmor = 100f;
     public float maxHealth = 100f;

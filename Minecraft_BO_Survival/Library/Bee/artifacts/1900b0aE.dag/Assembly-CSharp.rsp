@@ -358,6 +358,7 @@
 "Assets/Scripts/CW_ShootRifle.cs"
 "Assets/Scripts/EnemyScript.cs"
 "Assets/Scripts/GameController.cs"
+"Assets/Scripts/GameOverScript.cs"
 "Assets/Scripts/Inventory Script/CW_ArmorPlating.cs"
 "Assets/Scripts/Inventory Script/CW_HandGrenade.cs"
 "Assets/Scripts/Inventory Script/CW_IronSword.cs"
