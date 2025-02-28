@@ -13,6 +13,7 @@ public class EnemyScript : MonoBehaviour
     public float attackRange = 1f;
     private float attackCooldown = 3.0f;
     private float nextAttackTime = 0f;
+    float timer = 0;
     
     public float currentHealth;
     public float maxHealth = 100f;
@@ -23,11 +24,11 @@ public class EnemyScript : MonoBehaviour
     {
         currentHealth = maxHealth;
         agent = GetComponent<NavMeshAgent>();
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
         if(Player != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, Player.position, speed * Time.deltaTime);
@@ -36,17 +37,23 @@ public class EnemyScript : MonoBehaviour
             if(distanceToPlayer <= attackRange)
             {
                 AttackPlayer();
-                nextAttackTime = Time.time;
+                
             }
         }
     }
 
     public void AttackPlayer()
     {
-        PlayerHealthArmor playerStats = Player.GetComponent<PlayerHealthArmor>();
-        if(playerStats != null)
+        print("Attacking");
+        if (timer < 0)
         {
-            playerStats.TakeDamage(damage);
+            print("Hiytting");
+            PlayerHealthArmor playerStats = Player.GetComponent<PlayerHealthArmor>();
+            if (playerStats != null)
+            {
+                playerStats.TakeDamage(damage);
+            }
+            timer = attackCooldown;
         }
     }
     public void TakeDamage(float damage)
