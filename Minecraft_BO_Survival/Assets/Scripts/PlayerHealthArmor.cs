@@ -8,8 +8,8 @@ public class PlayerHealthArmor : MonoBehaviour
     //Player's armor and health bar
     public Image Blue;
     public Image Green;
-
     public GameObject Enemy;
+    public GameObject gameOverUI;
 
     public float maxArmor = 100f;
     public float maxHealth = 100f;
@@ -29,18 +29,25 @@ public class PlayerHealthArmor : MonoBehaviour
     {
         if(currentArmor > 0)
         {
-            float armorDamage = Mathf.Min(damage, currentArmor);
-            currentArmor -= armorDamage;
-            damage -= armorDamage;
+            if(currentArmor >= damage)
+            {
+                currentArmor -= damage;
+                return;
+            }
+            else 
+            {
+                float remainingDamage = damage - currentArmor;
+                currentArmor = 0;
+                currentHealth -= remainingDamage;
+            }
         }
-        if(damage > 0f)
+        else
         {
             currentHealth -= damage;
-            
-            if(currentHealth <= 0f)
-            {
-                Die();
-            }
+        }
+        if (currentHealth <= 0f)
+        {
+            Die();
         }
 
         UpdateBars();
@@ -56,20 +63,7 @@ public class PlayerHealthArmor : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
-        Debug.Log("Player has died! Game Over!!!");
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Enemy"))
-        {
-            float enemyDamage = 10f;
-            EnemyScript enemy = other.GetComponent<EnemyScript>();
-            if(enemy != null)
-            {
-                enemyDamage = enemy.damage;
-            }
-            TakeDamage(enemyDamage);
-        }
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
