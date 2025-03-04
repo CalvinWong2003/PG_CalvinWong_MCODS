@@ -9,7 +9,6 @@ public class PlayerHealthArmor : MonoBehaviour
     public Image Blue;
     public Image Green;
     public GameObject Enemy;
-    public GameObject gameOverUI;
 
     public float maxArmor = 100f;
     public float maxHealth = 100f;
@@ -63,7 +62,6 @@ public class PlayerHealthArmor : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
-        gameOverUI.SetActive(true);
         Time.timeScale = 0f;
     }
 }

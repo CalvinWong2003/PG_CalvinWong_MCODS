@@ -47,7 +47,7 @@ public class EnemyScript : MonoBehaviour
         print("Attacking");
         if (timer < 0)
         {
-            print("Hiytting");
+            print("Hitting");
             PlayerHealthArmor playerStats = Player.GetComponent<PlayerHealthArmor>();
             if (playerStats != null)
             {
@@ -85,17 +85,6 @@ public class EnemyScript : MonoBehaviour
             }
             TakeDamage(bulletDamage);
             Destroy(other.gameObject);
-        }
-        if(other.CompareTag("Sword"))
-        {
-            float swordDamage = 20f;
-
-            CW_IronSword sword = other.GetComponent<CW_IronSword>();
-            if(sword != null)
-            {
-                swordDamage = sword.attackDamage;
-            }
-            TakeDamage(swordDamage);
         }
     }
 }
