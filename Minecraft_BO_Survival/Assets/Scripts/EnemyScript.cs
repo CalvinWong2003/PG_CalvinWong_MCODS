@@ -7,12 +7,10 @@ using UnityEngine.UI;
 public class EnemyScript : MonoBehaviour
 {
     public Transform Player;
-    private NavMeshAgent agent;
     public float speed = 3f;
     public float damage = 10f;
     public float attackRange = 1f;
     private float attackCooldown = 3.0f;
-    private float nextAttackTime = 0f;
     float timer = 0;
     
     public float currentHealth;
@@ -23,7 +21,6 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        agent = GetComponent<NavMeshAgent>();
     }
     // Update is called once per frame
     void Update()
@@ -37,7 +34,6 @@ public class EnemyScript : MonoBehaviour
             if(distanceToPlayer <= attackRange)
             {
                 AttackPlayer();
-                
             }
         }
     }

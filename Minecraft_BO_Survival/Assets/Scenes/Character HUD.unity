@@ -220,6 +220,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7125029228394568513, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
   m_PrefabInstance: {fileID: 416277204}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &262444849 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7466305693158208125, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
+  m_PrefabInstance: {fileID: 416277204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &416277204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280,6 +285,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1211545971}
+    - target: {fileID: 8261627685028262679, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -765,7 +774,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7893785034636744360, guid: 62700279522f5b8489b472da9a47dce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 583232527}
   m_SourcePrefab: {fileID: 100100000, guid: 62700279522f5b8489b472da9a47dce6, type: 3}
 --- !u!4 &583232523 stripped
 Transform:
@@ -777,6 +789,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7893785034636744360, guid: 62700279522f5b8489b472da9a47dce6, type: 3}
   m_PrefabInstance: {fileID: 583232522}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &583232527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583232524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c353d11978ddd418c29f3f7092d813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Blue: {fileID: 1886857072}
+  currentArmor: 100
+  maxArmor: 100
+  healArmorAmount: 25
 --- !u!1 &638991890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,11 +1563,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211545970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55efcf09d0d104240ae25cee6785ce7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 262444849}
   attackDamage: 25
   attackCooldown: 1.5
   attackRange: 1.5
@@ -1550,7 +1579,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211545970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6111a8ed20a7ce04080d737ff87feb70, type: 3}
   m_Name: 
@@ -1566,7 +1595,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211545970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48c353d11978ddd418c29f3f7092d813, type: 3}
   m_Name: 
@@ -1582,7 +1611,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211545970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb7d903ba3fb9ca4783886d3d295b90d, type: 3}
   m_Name: 
@@ -1620,7 +1649,6 @@ MonoBehaviour:
   Blue: {fileID: 1886857072}
   Green: {fileID: 1178374706}
   Enemy: {fileID: 262444844}
-  gameOverUI: {fileID: 975542498}
   maxArmor: 100
   maxHealth: 100
 --- !u!1 &1266144203 stripped
@@ -2234,13 +2262,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 23255270147735511, guid: 2b43bd06739952d4c9a6af52923c74d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1836305772}
   m_SourcePrefab: {fileID: 100100000, guid: 2b43bd06739952d4c9a6af52923c74d2, type: 3}
 --- !u!4 &1836305769 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 799756338765751661, guid: 2b43bd06739952d4c9a6af52923c74d2, type: 3}
   m_PrefabInstance: {fileID: 1836305768}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1836305772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975988377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6111a8ed20a7ce04080d737ff87feb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Green: {fileID: 1178374706}
+  currentHealth: 100
+  maxHealth: 100
+  healAmount: 25
 --- !u!1001 &1848592664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2337,6 +2384,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1286289264483116060, guid: c2bf99e605b25464eb33b807f676a1ec, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 262444849}
     - target: {fileID: 1286289264483116060, guid: c2bf99e605b25464eb33b807f676a1ec, type: 3}
       propertyPath: Player
       value: 
@@ -2528,7 +2579,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6330803777304551791, guid: 7550a7b458d973f49a340d4843f45329, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7634996263365872471}
   m_SourcePrefab: {fileID: 100100000, guid: 7550a7b458d973f49a340d4843f45329, type: 3}
 --- !u!1001 &5565765630764945821
 PrefabInstance:
@@ -2604,6 +2658,10 @@ PrefabInstance:
       value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 2848204227657067963, guid: 07149182cb767bf4499af198527bf3ae, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 262444849}
+    - target: {fileID: 2848204227657067963, guid: 07149182cb767bf4499af198527bf3ae, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1211545971}
@@ -2669,6 +2727,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1511250176007453252, guid: 7550a7b458d973f49a340d4843f45329, type: 3}
   m_PrefabInstance: {fileID: 4300933633974017819}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7634996263365872471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115445565158838764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7d903ba3fb9ca4783886d3d295b90d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenadePrefab: {fileID: 4356668547043171501, guid: 42d1c1dab5c2d614a8e904dd8abc51b9, type: 3}
+  throwForce: 100
+  AOEdamage: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
