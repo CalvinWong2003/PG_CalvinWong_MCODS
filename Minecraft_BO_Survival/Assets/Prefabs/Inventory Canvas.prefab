@@ -124,6 +124,11 @@ MonoBehaviour:
   Slot_3: {fileID: 1002544281650858672}
   Slot_4: {fileID: 163494649299372767}
   Slot_5: {fileID: 5210712217496600260}
+  AK47: {fileID: 0}
+  IronSword: {fileID: 0}
+  ArmorPlate: {fileID: 0}
+  MedKit: {fileID: 0}
+  handGrenade: {fileID: 0}
 --- !u!1 &1298218601626696795
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +215,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4643842902550079022}
   - component: {fileID: 7721146818898648202}
-  - component: {fileID: 123286862544641617}
   m_Layer: 0
   m_Name: Med_Kit
   m_TagString: Untagged
@@ -285,18 +289,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &123286862544641617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936200720018824186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6111a8ed20a7ce04080d737ff87feb70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2335833562195760137
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +299,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3581045919784651531}
   - component: {fileID: 134891267594898314}
-  - component: {fileID: 4811113471656715476}
   m_Layer: 0
   m_Name: Hand_Grenade 1
   m_TagString: Untagged
@@ -382,20 +373,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4811113471656715476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2335833562195760137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb7d903ba3fb9ca4783886d3d295b90d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grenadePrefab: {fileID: 4356668547043171501, guid: 42d1c1dab5c2d614a8e904dd8abc51b9, type: 3}
-  throwForce: 10
 --- !u!1 &2887250067403675584
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +383,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3887130802540630969}
   - component: {fileID: 2074411810408083779}
-  - component: {fileID: 2408467431811621316}
   m_Layer: 0
   m_Name: Iron_Chestplate
   m_TagString: Untagged
@@ -481,18 +457,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2408467431811621316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2887250067403675584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48c353d11978ddd418c29f3f7092d813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4660729732718980919
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +542,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6662513298739265366}
   - component: {fileID: 6289821130179026332}
-  - component: {fileID: 1286289264483116060}
   m_Layer: 0
   m_Name: Iron_Sword
   m_TagString: Untagged
@@ -653,18 +616,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1286289264483116060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5063286768864887624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55efcf09d0d104240ae25cee6785ce7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5339520426721047951
 GameObject:
   m_ObjectHideFlags: 0
