@@ -23,14 +23,15 @@ public class CW_IronSword : MonoBehaviour, IUsable
     }
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        print(timer);
+        timer -= Time.deltaTime;
+        if (Input.GetMouseButtonDown(0))
         {
             swingSword();
         }
     }
     internal void swingSword()
     {
-        timer -= Time.deltaTime;
         Debug.Log("Swinging sword!");
         float distanceToEnemy = Vector3.Distance(transform.position, Enemy.position);
         if (distanceToEnemy <= attackRange)
@@ -42,14 +43,22 @@ public class CW_IronSword : MonoBehaviour, IUsable
     private void AttackEnemy()
     {
         print("Attacking!");
-        if(timer < 0)
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        RaycastHit hit;
+        if(Physics.Raycast(ray, out hit, attackRange))
         {
-            EnemyScript enemyStats = Enemy.GetComponent<EnemyScript>();
-            if (enemyStats != null)
+            if(hit.collider.CompareTag("Enemy"))
             {
-                enemyStats.TakeDamage(attackDamage);
+                if (timer < 0)
+                {
+                    EnemyScript enemyStats = Enemy.GetComponent<EnemyScript>();
+                    if (enemyStats != null)
+                    {
+                        enemyStats.TakeDamage(attackDamage);
+                    }
+                    timer = attackCooldown;
+                }
             }
-            timer = attackCooldown;
         }
     }
 }

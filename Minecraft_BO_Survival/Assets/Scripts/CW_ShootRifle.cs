@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class CW_ShootRifle : MonoBehaviour, IUsable
@@ -21,24 +22,21 @@ public class CW_ShootRifle : MonoBehaviour, IUsable
     // Start is called before the first frame update
     void Start()
     {
-        AttackPoint = transform.Find("AttackPoint");
+        Transform[] allTransforms = GetComponentsInChildren<Transform>();
+        foreach (Transform t in allTransforms)
+        {
+            if (t.name == "AttackPoint")
+            {
+                AttackPoint = t;
+            }
+        }
         currentAmmo = magazineCapacity;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            if(currentAmmo > 0)
-            {
-                Shoot();
-            }
-            else
-            {
-                StartCoroutine(Reload());
-            }
-        }
+
     }
 
     internal void Shoot()
@@ -74,6 +72,14 @@ public class CW_ShootRifle : MonoBehaviour, IUsable
 
     public void use()
     {
-        Shoot();
+        if (currentAmmo > 0)
+        {
+            Shoot();
+        }
+        else
+        {
+            StartCoroutine(Reload());
+        }
+      
     }
 }

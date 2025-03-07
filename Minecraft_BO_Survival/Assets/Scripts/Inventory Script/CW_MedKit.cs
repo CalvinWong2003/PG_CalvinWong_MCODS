@@ -17,10 +17,7 @@ public class CW_MedKit : MonoBehaviour, IUsable
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            useMedKit();
-        }
+        
     }
 
     internal void useMedKit()
@@ -51,6 +48,9 @@ public class CW_MedKit : MonoBehaviour, IUsable
     }
     public void use()
     {
-        useMedKit();
+        if (Input.GetMouseButtonDown(0))
+        {
+            useMedKit();
+        }
     }
 }
