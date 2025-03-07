@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class CW_ArmorPlating : MonoBehaviour, IUsable
 {
+    public GameObject Player;
     public Image Blue;
-    public int currentArmor = 100;
-    public int maxArmor = 100;
+    public float numberOfUses = 2f;
     public int healArmorAmount = 25;
 
     void Update()
@@ -21,23 +21,28 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
     internal void useArmorPlating()
     {
         Debug.Log("Using armor plating to reinforce myself");
-
-        if(currentArmor < maxArmor)
+        for(int i = 0; i < numberOfUses; i++)
         {
-            currentArmor = Mathf.Min(currentArmor + healArmorAmount, maxArmor);
-
-            if(Blue != null)
+            if(numberOfUses > 0)
             {
-                Blue.fillAmount = (float)currentArmor / maxArmor;
+                HealArmor();
+                Debug.Log("Number of Armor Plates left: " + numberOfUses);
             }
-            Debug.Log("Armor Plating used. Current Armor: " + currentArmor);
-        }
-        else
-        {
-            Debug.Log("Armor is already full, Armor Plating not used");
+            else
+            {
+                Debug.Log("No Armor Plates available!!!");
+            }
+            numberOfUses--;
         }
     }
-    
+    public void HealArmor()
+    {
+        PlayerHealthArmor playerArmor = Player.GetComponent<PlayerHealthArmor>();
+        if(playerArmor != null)
+        {
+            playerArmor.UpdateArmorBar(healArmorAmount);
+        }
+    }
 
     public void use()
     {

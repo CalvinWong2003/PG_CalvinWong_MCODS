@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class CW_MedKit : MonoBehaviour, IUsable
 {
+    public GameObject Player;
+
     [Tooltip("The green UI Image representing the player's health bar")]
     public Image Green;
 
-    [Tooltip("Current player health (should not exceed max health)")]
-    public int currentHealth = 100;
-
-    [Tooltip("Maximum health value")]
-    public int maxHealth = 100;
+    public float numberOfUses = 2;
 
     [Tooltip("Amount to heal when the medkit is used")]
     public int healAmount = 25;
@@ -28,24 +26,29 @@ public class CW_MedKit : MonoBehaviour, IUsable
     internal void useMedKit()
     {
         Debug.Log("Using MedKit to heal myself");
-
-        if(currentHealth < maxHealth)
+        for(int i = 0; i < numberOfUses; i++)
         {
-            currentHealth = Mathf.Min(currentHealth + healAmount, maxHealth);
-
-            if(Green != null)
+            if(numberOfUses > 0)
             {
-                Green.fillAmount = (float)currentHealth / maxHealth;
+                Heal();
+                Debug.Log("Number of Med Kits left: " + numberOfUses);
             }
-            Debug.Log("Medkit used. Current health: " + currentHealth);
-        }
-        else
-        {
-            Debug.Log("Health is already full. Medkit not used.");
+            else
+            {
+                Debug.Log("No Med Kits available!!!");
+            }
+            numberOfUses--;
         }
     }
-    
 
+    private void Heal()
+    {
+        PlayerHealthArmor playerHealth = Player.GetComponent<PlayerHealthArmor>();
+        if(playerHealth != null)
+        {
+            playerHealth.UpdateHealthBar(healAmount);
+        }
+    }
     public void use()
     {
         useMedKit();
