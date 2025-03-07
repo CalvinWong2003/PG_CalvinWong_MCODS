@@ -12,10 +12,7 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            useArmorPlating();
-        }
+        
     }
 
     internal void useArmorPlating()
@@ -46,6 +43,9 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
 
     public void use()
     {
-        useArmorPlating();
+        if (Input.GetMouseButtonDown(0))
+        {
+            useArmorPlating();
+        }
     }
 }
