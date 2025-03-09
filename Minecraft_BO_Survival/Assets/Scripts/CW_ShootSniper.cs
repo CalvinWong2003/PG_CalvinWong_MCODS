@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class CW_ShootSniper : MonoBehaviour, IUsable
@@ -9,7 +10,6 @@ public class CW_ShootSniper : MonoBehaviour, IUsable
 
     [Tooltip("Time (in seconds) before you can fire again")]
     public float reloadTime = 3.5f;
-    public float reloadCooldown = 1f;
 
     [Tooltip("Magazine capacity (number of rounds left before reload)")]
     public int magazineCapacity = 5;

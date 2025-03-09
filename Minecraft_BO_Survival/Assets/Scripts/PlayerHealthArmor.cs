@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,8 +23,7 @@ public class PlayerHealthArmor : MonoBehaviour
         currentArmor = maxArmor;
         currentHealth = maxHealth;
 
-        UpdateHealthBar(currentHealth);
-        UpdateArmorBar(currentArmor);
+        UpdateBars();
     }
 
     public void TakeDamage(float damage)
@@ -33,46 +33,45 @@ public class PlayerHealthArmor : MonoBehaviour
             if(currentArmor >= damage)
             {
                 currentArmor -= damage;
-                UpdateArmorBar(currentArmor);
             }
             else 
             {
                 float remainingDamage = damage - currentArmor;
                 currentArmor = 0;
-                UpdateArmorBar(currentArmor);
                 currentHealth -= remainingDamage;
-                UpdateHealthBar(currentHealth);
             }
         }
         else
         {
             currentHealth -= damage;
-            UpdateHealthBar(currentHealth);
         }
         if (currentHealth <= 0f)
         {
             Die();
         }
+        UpdateBars();
     }
-    public void UpdateHealthBar(float health)
+    public void UpdateBars()
+    {
+        //Update the health green bar based on current health value
+        Green.fillAmount = currentHealth / maxHealth;
+
+        //Update the armor blue bar based on current armor value
+        Blue.fillAmount = currentArmor / maxArmor;
+    }
+    public void Heal(float amount)
     {
         CW_MedKit medkit = Player.GetComponent<CW_MedKit>();
         if(medkit != null)
         {
             medkit.healAmount += (int)currentHealth;
         }
-        //Update the health green bar based on current health value
-        Green.fillAmount = currentHealth / maxHealth;
-    }
-    public void UpdateArmorBar(float armor)
-    {
         CW_ArmorPlating armorplate = Player.GetComponent<CW_ArmorPlating>();
         if (armorplate != null)
         {
             armorplate.healArmorAmount += (int)currentArmor;
         }
-        //Update the armor blue bar based on current armor value
-        Blue.fillAmount = currentArmor / maxArmor;
+        UpdateBars();
     }
     private void Die()
     {

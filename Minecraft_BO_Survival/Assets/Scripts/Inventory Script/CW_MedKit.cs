@@ -22,12 +22,15 @@ public class CW_MedKit : MonoBehaviour, IUsable
 
     internal void useMedKit()
     {
-        Debug.Log("Using MedKit to heal myself");
         for(int i = 0; i < numberOfUses; i++)
         {
             if(numberOfUses > 0)
             {
-                Heal();
+                PlayerHealthArmor playerHealth = Player.GetComponent<PlayerHealthArmor>();
+                if(playerHealth != null)
+                {
+                    playerHealth.Heal(healAmount);
+                }
                 Debug.Log("Number of Med Kits left: " + numberOfUses);
             }
             else
@@ -35,15 +38,6 @@ public class CW_MedKit : MonoBehaviour, IUsable
                 Debug.Log("No Med Kits available!!!");
             }
             numberOfUses--;
-        }
-    }
-
-    private void Heal()
-    {
-        PlayerHealthArmor playerHealth = Player.GetComponent<PlayerHealthArmor>();
-        if(playerHealth != null)
-        {
-            playerHealth.UpdateHealthBar(healAmount);
         }
     }
     public void use()

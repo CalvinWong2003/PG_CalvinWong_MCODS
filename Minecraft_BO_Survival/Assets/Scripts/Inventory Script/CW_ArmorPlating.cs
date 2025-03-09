@@ -22,7 +22,11 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
         {
             if(numberOfUses > 0)
             {
-                HealArmor();
+                PlayerHealthArmor playerArmor = Player.GetComponent<PlayerHealthArmor>();
+                if(playerArmor != null)
+                {
+                    playerArmor.Heal(healArmorAmount);
+                }
                 Debug.Log("Number of Armor Plates left: " + numberOfUses);
             }
             else
@@ -30,14 +34,6 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
                 Debug.Log("No Armor Plates available!!!");
             }
             numberOfUses--;
-        }
-    }
-    public void HealArmor()
-    {
-        PlayerHealthArmor playerArmor = Player.GetComponent<PlayerHealthArmor>();
-        if(playerArmor != null)
-        {
-            playerArmor.UpdateArmorBar(healArmorAmount);
         }
     }
 
