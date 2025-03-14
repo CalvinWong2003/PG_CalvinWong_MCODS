@@ -10,7 +10,6 @@ public class PlayerHealthArmor : MonoBehaviour
     public GameObject Player;
     public Image Blue;
     public Image Green;
-    public GameObject Enemy;
 
     public float maxArmor = 100f;
     public float maxHealth = 100f;

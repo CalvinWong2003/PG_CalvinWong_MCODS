@@ -6,21 +6,24 @@ using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour
 {
-    public Transform Player;
-    public float speed = 3f;
-    public float damage = 10f;
-    public float attackRange = 1f;
+    Transform Player;
+    float speed = 3f;
+    float damage = 10f;
+    float attackRange = 1f;
     private float attackCooldown = 3.0f;
     float timer = 0;
     
-    public float currentHealth;
-    public float maxHealth = 100f;
-
+    float currentHealth;
+    float maxHealth = 100f;
+    NavMeshAgent navigate;
     public int scoreValue = 20;
     // Start is called before the first frame update
     void Start()
     {
+        navigate = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
+        CharacterControllerScript thePlayerScript = FindObjectOfType<CharacterControllerScript>();
+        Player = thePlayerScript.transform;
     }
     // Update is called once per frame
     void Update()
@@ -28,8 +31,8 @@ public class EnemyScript : MonoBehaviour
         timer -= Time.deltaTime;
         if(Player != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, Player.position, speed * Time.deltaTime);
-
+            //transform.position = Vector3.MoveTowards(transform.position, Player.position, speed * Time.deltaTime);
+            navigate.SetDestination(Player.position);
             float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
             if(distanceToPlayer <= attackRange)
             {
@@ -48,6 +51,7 @@ public class EnemyScript : MonoBehaviour
             if (playerStats != null)
             {
                 playerStats.TakeDamage(damage);
+                playerStats.UpdateBars();
             }
             timer = attackCooldown;
         }
