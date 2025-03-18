@@ -9,6 +9,7 @@ TagManager:
   - Sword
   - Grenade
   - Enemy
+  - Sniper Bullet
   layers:
   - Default
   - TransparentFX

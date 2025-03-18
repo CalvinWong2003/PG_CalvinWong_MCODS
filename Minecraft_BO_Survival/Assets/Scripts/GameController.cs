@@ -11,15 +11,10 @@ public class GameController : MonoBehaviour
     public Transform[] spawnPoints;
     public float spawnRate = 3f;
 
-    //Instatiating MedKits from specific spawn points with timer
     public GameObject MedKit;
-    public Transform[] MedKitSpawnPoints;
-    float MedKitTimer = 0;
-
-    //Instatiating Armor Plates from specific spawn points with timer
     public GameObject ArmorPlate;
-    public Transform[] ArmorPlateSpawnPoints;
-    float ArmorPlateTimer = 0;
+    [SerializeField] public Transform[] spawnPrefabPoints;
+    private Dictionary<int, Coroutine> respawnCoroutines = new Dictionary<int, Coroutine>();
 
     public static GameController Instance;
     public int score;
@@ -30,8 +25,15 @@ public class GameController : MonoBehaviour
     {
         InvokeRepeating("SpawnEnemy", 1f, spawnRate);
 
-        InvokeRepeating("SpawnMedKit", 1f, 60f);
-        InvokeRepeating("SpawnArmorPlate", 1f, 60f);
+        InitializeSpawns();
+    }
+    
+    private void InitializeSpawns()
+    {
+        for(int i = 0; i < spawnPrefabPoints.Length; i++)
+        {
+            SpawnPickup(i);
+        }
     }
 
     void SpawnEnemy()
@@ -40,39 +42,30 @@ public class GameController : MonoBehaviour
         Instantiate(Enemy, spawnPoints[index].position, Quaternion.identity);
     }
 
-    void SpawnMedKit()
+    void SpawnPickup(int index)
     {
-        int index = Random.Range(0, MedKitSpawnPoints.Length);
-        Instantiate(MedKit, MedKitSpawnPoints[index].position, Quaternion.identity);
-        
-        for(int i = 0; i < index; i++)
+        if (spawnPrefabPoints[index].childCount == 0)
         {
-            if (MedKit == null)
-            {
-                MedKitTimer += Time.deltaTime;
-                if (MedKitTimer == 60)
-                {
-                    Instantiate(MedKit, MedKitSpawnPoints[index].position, Quaternion.identity);
-                }
-            }
+            bool isMedKit = Random.value > 0.5f;
+            GameObject pickupSpawn = isMedKit ? MedKit : ArmorPlate;
+            GameObject spawnedPickup = Instantiate(pickupSpawn, spawnPrefabPoints[index].position, Quaternion.identity);
+            spawnedPickup.transform.parent = spawnPrefabPoints[index];
+
         }
     }
-    void SpawnArmorPlate()
+
+    public void StartRespawnTimer(int index)
     {
-        int index = Random.Range(0, ArmorPlateSpawnPoints.Length);
-        Instantiate(ArmorPlate, ArmorPlateSpawnPoints[index].position, Quaternion.identity);
-        
-        for (int i = 0; i < index; i++)
+        if(!respawnCoroutines.ContainsKey(index))
         {
-            if (ArmorPlate == null)
-            {
-                ArmorPlateTimer += Time.deltaTime;
-                if (ArmorPlateTimer == 60)
-                {
-                    Instantiate(ArmorPlate, ArmorPlateSpawnPoints[index].position, Quaternion.identity);
-                }
-            }
+            respawnCoroutines[index] = StartCoroutine(RespawnPickup(index));
         }
+    }
+    private IEnumerator RespawnPickup(int index)
+    {
+        yield return new WaitForSeconds(60f);
+        SpawnPickup(index);
+        respawnCoroutines.Remove(index);
     }
 
     void Awake()
