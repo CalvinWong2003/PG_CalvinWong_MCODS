@@ -10,9 +10,9 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
     public float numberOfUses = 2f;
     public int healArmorAmount = 25;
 
-    void Update()
+    public void AddUse()
     {
-        
+        numberOfUses++;
     }
 
     internal void useArmorPlating()

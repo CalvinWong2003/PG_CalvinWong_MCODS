@@ -86,5 +86,18 @@ public class EnemyScript : MonoBehaviour
             TakeDamage(bulletDamage);
             Destroy(other.gameObject);
         }
+        if (other.CompareTag("Sniper Bullet"))
+        {
+            float bulletDamage = 100f;
+
+            SniperBullet sniperBullet = other.GetComponent<SniperBullet>();
+
+            if (sniperBullet != null)
+            {
+                bulletDamage = sniperBullet.damage;
+            }
+            TakeDamage(bulletDamage);
+            Destroy(other.gameObject);
+        }
     }
 }

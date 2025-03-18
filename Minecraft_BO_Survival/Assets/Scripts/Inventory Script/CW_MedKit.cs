@@ -15,9 +15,9 @@ public class CW_MedKit : MonoBehaviour, IUsable
     [Tooltip("Amount to heal when the medkit is used")]
     public int healAmount = 25;
 
-    void Update()
+    public void AddUse()
     {
-        
+        numberOfUses++;
     }
 
     internal void useMedKit()

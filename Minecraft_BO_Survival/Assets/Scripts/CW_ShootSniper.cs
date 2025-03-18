@@ -9,7 +9,7 @@ public class CW_ShootSniper : MonoBehaviour, IUsable
     Transform AttackPoint;
 
     [Tooltip("Time (in seconds) before you can fire again")]
-    public float reloadTime = 3.5f;
+    public float reloadTime = 5f;
 
     [Tooltip("Magazine capacity (number of rounds left before reload)")]
     public int magazineCapacity = 5;
