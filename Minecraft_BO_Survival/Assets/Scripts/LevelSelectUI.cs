@@ -24,13 +24,5 @@ public class LevelSelectUI : MonoBehaviour
         {
             SceneManager.LoadScene("Level4");
         }
-        if (GUILayout.Button("Level 5"))
-        {
-            SceneManager.LoadScene("Level5");
-        }
-        if (GUILayout.Button("Level 6"))
-        {
-            SceneManager.LoadScene("Level6");
-        }
     }
 }
