@@ -25271,17 +25271,16 @@ MonoBehaviour:
   - {fileID: 371214742}
   spawnRate: 3
   MedKit: {fileID: 7810829527276315939, guid: 4e40b7b6a8e1e0449935f9f380940bd6, type: 3}
-  MedKitSpawnPoints:
+  ArmorPlate: {fileID: 1670926721714667076, guid: 75cfbbc1ed0219e40b39d9e34cf05b0c, type: 3}
+  spawnPrefabPoints:
   - {fileID: 122374144}
   - {fileID: 622869152}
   - {fileID: 1655864495}
   - {fileID: 1488869072}
   - {fileID: 1992982629}
-  ArmorPlate: {fileID: 1670926721714667076, guid: 75cfbbc1ed0219e40b39d9e34cf05b0c, type: 3}
-  ArmorPlateSpawnPoints:
   - {fileID: 836384695}
   - {fileID: 1657435234}
-  - {fileID: 737250427}
+  - {fileID: 126234931}
   - {fileID: 126234931}
   - {fileID: 1268976659}
   score: 0
