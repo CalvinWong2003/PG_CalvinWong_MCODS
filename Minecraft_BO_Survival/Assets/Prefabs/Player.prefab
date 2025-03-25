@@ -1,5 +1,84 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &217198156782488853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5297067922209594137}
+  - component: {fileID: 5823806822152385816}
+  - component: {fileID: 3784937035339528756}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5297067922209594137
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217198156782488853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7545828794427936265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 687, y: 448}
+  m_SizeDelta: {x: 500, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5823806822152385816
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217198156782488853}
+  m_CullTransparentMesh: 1
+--- !u!114 &3784937035339528756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217198156782488853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 2
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Timer: 00:00:00'
 --- !u!1 &1068127281045037835
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,7 +113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068127281045037835}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 1, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -140,14 +219,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a6a5e1e47bba34ca7aeea3a9aa8cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1068127281045037835}
   Blue: {fileID: 2700078727169479773}
   Green: {fileID: 6272028435012896612}
-  Enemy: {fileID: 0}
   maxArmor: 100
   maxHealth: 100
   currentArmor: 0
   currentHealth: 0
+  gameOverUI: {fileID: 0}
 --- !u!114 &4685323778818165188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55efcf09d0d104240ae25cee6785ce7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 0}
+  Enemy: {fileID: 7466305693158208125, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
   attackDamage: 25
   attackCooldown: 1.5
   attackRange: 1.5
@@ -238,7 +317,7 @@ GameObject:
   - component: {fileID: 3135916953267845697}
   - component: {fileID: 34591837775797898}
   m_Layer: 0
-  m_Name: Text (Legacy)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,8 +339,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 744, y: 469}
-  m_SizeDelta: {x: 500, y: 200}
+  m_AnchoredPosition: {x: 790, y: 335}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3135916953267845697
 CanvasRenderer:
@@ -318,7 +397,7 @@ GameObject:
   - component: {fileID: 6543310123077199477}
   - component: {fileID: 5577774154691875566}
   m_Layer: 0
-  m_Name: Score
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,6 +416,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9181277757981969048}
+  - {fileID: 5297067922209594137}
   m_Father: {fileID: 4914326327089969268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -747,6 +827,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 2848204227657067963, guid: 07149182cb767bf4499af198527bf3ae, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 7466305693158208125, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
     - target: {fileID: 2848204227657067963, guid: 07149182cb767bf4499af198527bf3ae, type: 3}
       propertyPath: Player
       value: 

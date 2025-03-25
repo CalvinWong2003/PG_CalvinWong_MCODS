@@ -16,6 +16,8 @@ public class PlayerHealthArmor : MonoBehaviour
     public float currentArmor;
     public float currentHealth;
 
+    public GameOverScript gameOverUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,5 +78,6 @@ public class PlayerHealthArmor : MonoBehaviour
     {
         Destroy(gameObject);
         Time.timeScale = 0f;
+        gameOverUI.ShowGameOver();
     }
 }
