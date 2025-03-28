@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShotgunBullets : MonoBehaviour
 {
     public float damage = 50f;
-    public float speed = 30f;
+    public float speed = 45f;
     public float lifetime = 5f;
 
     // Start is called before the first frame update
@@ -17,6 +17,6 @@ public class ShotgunBullets : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+       // transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }
