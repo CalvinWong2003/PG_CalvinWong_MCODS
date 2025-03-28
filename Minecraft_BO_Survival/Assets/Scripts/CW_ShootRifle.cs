@@ -16,7 +16,7 @@ public class CW_ShootRifle : MonoBehaviour, IUsable
 
     private int currentAmmo;
     private float nextFireRate;
-    private bool isReloading;
+    private bool isReloading = false;
 
     float bulletSpeed = 30.5f;
     // Start is called before the first frame update

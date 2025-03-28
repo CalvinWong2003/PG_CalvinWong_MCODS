@@ -7,10 +7,10 @@ public class CW_ShootShotgun : MonoBehaviour, IUsable
 {
 
     public GameObject ShotgunBullets;
-    Transform attackPoint;
-    public float bulletSpeed = 30f;
-    public int pelletCount = 5;
-    public float spreadAngle = 10f;
+    Transform AttackPoint;
+     float bulletSpeed = 45f;
+    int pelletCount = 5;
+     float spreadAngle = 45f;
 
     [Tooltip("Time (in seconds) before you can fire again")]
     public float reloadTime = 4f;
@@ -19,8 +19,7 @@ public class CW_ShootShotgun : MonoBehaviour, IUsable
     public int magazineCapacity = 8;
 
     private int currentAmmo;
-    private float nextFireRate;
-    private bool isReloading;
+    private bool isReloading = false;
 
     void Start()
     {
@@ -29,7 +28,7 @@ public class CW_ShootShotgun : MonoBehaviour, IUsable
         {
             if (t.name == "AttackPoint")
             {
-                attackPoint = t;
+                AttackPoint = t;
             }
         }
         currentAmmo = magazineCapacity;
@@ -37,20 +36,6 @@ public class CW_ShootShotgun : MonoBehaviour, IUsable
 
     void ShootShotgun()
     {
-        for(int i = 0; i < pelletCount; i++)
-        {
-            float angle = Random.Range(-spreadAngle, spreadAngle);
-            Quaternion rotation = Quaternion.Euler(0f, angle, 0f);
-            Vector3 shootDirection = rotation * attackPoint.forward;
-
-            GameObject shotgunBullet = Instantiate(ShotgunBullets, attackPoint.position, Quaternion.identity);
-
-            Rigidbody rb = shotgunBullet.GetComponent<Rigidbody>();
-            if(rb == null)
-            {
-                rb.velocity = shootDirection * bulletSpeed;
-            }
-        }
         currentAmmo--;
         Debug.Log("Shots Fired! Ammo remaing: " + currentAmmo);
 
@@ -58,6 +43,44 @@ public class CW_ShootShotgun : MonoBehaviour, IUsable
         {
             StartCoroutine(Reload());
         }
+        //Instantiates a total of 5 pellets in a cone angle
+        for (int i = 0; i < pelletCount; i++)
+        {
+
+            // Convert the cone angle to radians
+            float halfAngleRad = Mathf.Deg2Rad * spreadAngle / 2f;
+
+            // Generate a random direction within the cone
+            float randomTheta = Random.Range(0f, 2f * Mathf.PI);
+            float randomPhi = Random.Range(0f, halfAngleRad);
+
+            // Create a random axis of rotation
+            Vector3 randomAxis = new Vector3(
+                Mathf.Sin(randomPhi) * Mathf.Cos(randomTheta),
+                Mathf.Sin(randomPhi) * Mathf.Sin(randomTheta),
+                Mathf.Cos(randomPhi)
+            );
+
+            // Create a random rotation based on the axis
+            Quaternion rotationInCone = Quaternion.AngleAxis(spreadAngle / 2f, randomAxis);
+
+            Quaternion bulletForward = Quaternion.LookRotation(Camera.main.transform.forward) * rotationInCone;
+
+            GameObject shotgunBullet = Instantiate(ShotgunBullets, AttackPoint.position,bulletForward);
+
+            Rigidbody rb = shotgunBullet.GetComponent<Rigidbody>();
+            if(rb == null)
+            {
+                rb = shotgunBullet.AddComponent<Rigidbody>();
+            }
+            rb.velocity = shotgunBullet.transform.forward * bulletSpeed;
+        }
+    }
+
+    void Update()
+    {
+        Vector3 worldForward = transform.TransformDirection(transform.forward);
+        print(Camera.main.transform.forward);
     }
     IEnumerator Reload()
     {
@@ -66,7 +89,7 @@ public class CW_ShootShotgun : MonoBehaviour, IUsable
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = magazineCapacity;
         isReloading = false;
-        Debug.Log("Reload complete! Ammo is refilled to " + currentAmmo);
+        Debug.Log("Reload complete!");
     }
 
     public void use()
