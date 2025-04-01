@@ -804,6 +804,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 718879117277822217, guid: 0abc8357ea5740948a5a0209cf059520, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 1899900529}
     - target: {fileID: 1902619106989112205, guid: 0abc8357ea5740948a5a0209cf059520, type: 3}
       propertyPath: m_LocalPosition.x
       value: 67.2
@@ -891,6 +895,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1899900529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3534317273260264250, guid: 0abc8357ea5740948a5a0209cf059520, type: 3}
+  m_PrefabInstance: {fileID: 1899900526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2083354612
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,12 +7,18 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
 {
     public GameObject Player;
     public Image Blue;
-    public float numberOfUses = 2f;
-    public int healArmorAmount = 25;
+    float numberOfUses = 2f;
+    float numberOfUseLimit = 2f;
+    int healArmorAmount = 25;
 
     public void AddUse()
     {
         numberOfUses++;
+    }
+
+    void Start()
+    {
+        numberOfUseLimit = numberOfUses;
     }
 
     internal void useArmorPlating()

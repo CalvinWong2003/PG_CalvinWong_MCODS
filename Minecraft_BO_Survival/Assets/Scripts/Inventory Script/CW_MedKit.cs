@@ -6,18 +6,19 @@ using UnityEngine.UI;
 public class CW_MedKit : MonoBehaviour, IUsable
 {
     public GameObject Player;
-
-    [Tooltip("The green UI Image representing the player's health bar")]
     public Image Green;
-
-    public float numberOfUses = 2;
-
-    [Tooltip("Amount to heal when the medkit is used")]
-    public int healAmount = 25;
+    float numberOfUses = 2;
+    float numberOfUseLimit = 2f;
+    int healAmount = 25;
 
     public void AddUse()
     {
         numberOfUses++;
+    }
+
+    void Start()
+    {
+        numberOfUseLimit = numberOfUses;
     }
 
     internal void useMedKit()

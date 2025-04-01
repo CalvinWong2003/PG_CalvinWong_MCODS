@@ -19,7 +19,7 @@ public class InventoryBar : MonoBehaviour
     CharacterControllerScript thePlayer;
 
     //Items to select and activate upon selection
-    public GameObject AK47;
+    public GameObject weapon;
     public GameObject IronSword;
     public GameObject ArmorPlate;
     public GameObject MedKit;
@@ -30,9 +30,9 @@ public class InventoryBar : MonoBehaviour
     {
         thePlayer =FindObjectOfType<CharacterControllerScript>();
         
-        if(AK47 != null)
+        if(weapon != null)
         {
-            AK47.SetActive(true);
+            weapon.SetActive(true);
         }
         if(IronSword != null)
         {
@@ -63,9 +63,9 @@ public class InventoryBar : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             SelectSlot(Slot_1, 0);
-            if(AK47 != null)
+            if(weapon != null)
             {
-                AK47.SetActive(true);
+                weapon.SetActive(true);
             }
             if(IronSword != null)
             {
@@ -87,9 +87,9 @@ public class InventoryBar : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
             SelectSlot(Slot_2, 1);
-            if(AK47 != null)
+            if(weapon != null)
             {
-                AK47.SetActive(false);
+                weapon.SetActive(false);
             }
             if(IronSword != null)
             {
@@ -111,9 +111,9 @@ public class InventoryBar : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
             SelectSlot(Slot_3, 2);
-            if(AK47 != null)
+            if(weapon != null)
             {
-                AK47.SetActive(false);
+                weapon.SetActive(false);
             }
             if(IronSword != null)
             {
@@ -135,9 +135,9 @@ public class InventoryBar : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
             SelectSlot(Slot_4, 3);
-            if(AK47 != null)
+            if(weapon != null)
             {
-                AK47.SetActive(false);
+                weapon.SetActive(false);
             }
             if(IronSword != null)
             {
@@ -159,9 +159,9 @@ public class InventoryBar : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha5))
         {
             SelectSlot(Slot_5, 4);
-            if(AK47 != null)
+            if(weapon != null)
             {
-                AK47.SetActive(false);
+                weapon.SetActive(false);
             }
             if(IronSword != null)
             {

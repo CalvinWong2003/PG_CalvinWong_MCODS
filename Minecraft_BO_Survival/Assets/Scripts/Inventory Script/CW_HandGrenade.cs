@@ -5,8 +5,10 @@ using UnityEngine;
 public class CW_HandGrenade : MonoBehaviour,IUsable
 {
     public GameObject grenadePrefab;
-    public float throwForce = 100f;
-    public float AOEdamage = 100f;
+    float throwForce = 10f;
+    float explosionDelay = 2f;
+    float blastRadius = 3f;
+    float AOEdamage = 100f;
 
     private GameObject spawnedGrenade;
 
@@ -41,7 +43,24 @@ public class CW_HandGrenade : MonoBehaviour,IUsable
     {
         yield return new WaitForSeconds(delay);
 
-        Debug.Log("Boom! Grenade exploded.");
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, blastRadius);
+        foreach(Collider hit in hitColliders)
+        {
+            if(hit.CompareTag("Enemy"))
+            {
+                EnemyScript enemy = hit.GetComponent<EnemyScript>();
+                if(enemy != null)
+                {
+                    enemy.TakeDamage(AOEdamage);
+                }
+                else
+                {
+                    Destroy(hit.gameObject);
+                }
+            }
+        }
+        Debug.Log("BOOM!!!");
+        
         Destroy(grenade);
     }
 

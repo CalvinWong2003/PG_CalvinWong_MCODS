@@ -460,6 +460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Score
       objectReference: {fileID: 0}
+    - target: {fileID: 4686657438283345624, guid: e53b477b9b435f34c83c99b848ee53ea, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 1911625079}
     - target: {fileID: 5950617794242193500, guid: e53b477b9b435f34c83c99b848ee53ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.26
@@ -536,6 +540,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1911625079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8920315238613945034, guid: e53b477b9b435f34c83c99b848ee53ea, type: 3}
+  m_PrefabInstance: {fileID: 1911625077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1983810278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8425613256465714761, guid: 606225e62191f3c42bac14f2f4535ebb, type: 3}
