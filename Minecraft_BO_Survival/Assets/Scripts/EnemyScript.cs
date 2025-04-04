@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class EnemyScript : MonoBehaviour
+public class EnemyScript : MonoBehaviour,IHealth
 {
     Transform Player;
     float speed = 3f;
@@ -124,6 +124,15 @@ public class EnemyScript : MonoBehaviour
             }
             TakeDamage(bulletDamage);
             Destroy(other.gameObject);
+        }
+    }
+
+    public void takeDamage(int amount)
+    {
+        currentHealth -= amount;
+        if(currentHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

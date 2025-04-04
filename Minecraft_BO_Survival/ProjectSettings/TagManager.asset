@@ -12,6 +12,7 @@ TagManager:
   - Sniper Bullet
   - Shotgun Bullets
   - Revolver Bullet
+  - Game Structure
   layers:
   - Default
   - TransparentFX

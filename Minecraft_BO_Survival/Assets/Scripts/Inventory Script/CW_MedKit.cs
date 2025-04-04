@@ -9,7 +9,7 @@ public class CW_MedKit : MonoBehaviour, IUsable
     public Image Green;
     float numberOfUses = 2;
     float numberOfUseLimit = 2f;
-    int healAmount = 25;
+    internal int healAmount = 25;
 
     public void AddUse()
     {
