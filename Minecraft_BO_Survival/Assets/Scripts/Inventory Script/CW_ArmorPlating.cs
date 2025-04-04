@@ -9,7 +9,7 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
     public Image Blue;
     float numberOfUses = 2f;
     float numberOfUseLimit = 2f;
-    int healArmorAmount = 25;
+    internal int healArmorAmount = 25;
 
     public void AddUse()
     {
