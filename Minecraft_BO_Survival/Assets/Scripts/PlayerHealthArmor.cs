@@ -8,13 +8,13 @@ public class PlayerHealthArmor : MonoBehaviour
 {
     //Player's armor and health bar
     public GameObject Player;
-    public Image Blue;
-    public Image Green;
+    Image Blue;
+    Image Green;
 
     public float maxArmor = 100f;
     public float maxHealth = 100f;
-    public float currentArmor;
-    public float currentHealth;
+    float currentArmor;
+    float currentHealth;
 
     public GameOverScript gameOverUI;
 
@@ -23,8 +23,6 @@ public class PlayerHealthArmor : MonoBehaviour
     {
         currentArmor = maxArmor;
         currentHealth = maxHealth;
-
-        UpdateBars();
     }
 
     public void TakeDamage(float damage)

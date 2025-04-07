@@ -43,6 +43,7 @@ public class EnemyScript : MonoBehaviour,IHealth
 
     public void AttackPlayer()
     {
+        timer -= Time.deltaTime;
         print("Attacking");
         if (timer < 0)
         {
@@ -51,7 +52,6 @@ public class EnemyScript : MonoBehaviour,IHealth
             if (playerStats != null)
             {
                 playerStats.TakeDamage(damage);
-                playerStats.UpdateBars();
             }
             timer = attackCooldown;
         }

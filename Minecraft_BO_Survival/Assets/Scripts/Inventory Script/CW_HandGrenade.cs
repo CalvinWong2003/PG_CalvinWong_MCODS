@@ -5,17 +5,8 @@ using UnityEngine;
 public class CW_HandGrenade : MonoBehaviour,IUsable
 {
     public GameObject grenadePrefab;
-    float throwForce = 10f;
-    float explosionDelay = 2f;
-    float blastRadius = 3f;
-    float AOEdamage = 100f;
 
     private GameObject spawnedGrenade;
-
-    void Update()
-    {
-
-    }
 
     void ThrowGrenade()
     {
