@@ -1066,8 +1066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 4356668547043171501, guid: 42d1c1dab5c2d614a8e904dd8abc51b9, type: 3}
-  throwForce: 100
-  AOEdamage: 100
 --- !u!1 &5023092998495322557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1085,7 @@ GameObject:
   - component: {fileID: 7308216995511527828}
   - component: {fileID: 7496371139864205627}
   - component: {fileID: 1144231039943617699}
+  - component: {fileID: 5214173781583381888}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -1175,7 +1174,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1195,7 +1194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d149ed593b333459dab6f3d553de57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
 --- !u!114 &8855875193806476338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1209,12 +1208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 5023092998495322557}
-  Blue: {fileID: 7935280035915740907}
-  Green: {fileID: 2048544971062044114}
   maxArmor: 100
   maxHealth: 100
-  currentArmor: 0
-  currentHealth: 0
   gameOverUI: {fileID: 0}
 --- !u!114 &8660489001453427365
 MonoBehaviour:
@@ -1245,8 +1240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 7466305693158208125, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
   attackDamage: 25
-  attackCooldown: 1.5
-  attackRange: 1.5
 --- !u!114 &7308216995511527828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,8 +1254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 5023092998495322557}
   Blue: {fileID: 7935280035915740907}
-  numberOfUses: 2
-  healArmorAmount: 25
 --- !u!114 &7496371139864205627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1277,8 +1268,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 5023092998495322557}
   Green: {fileID: 2048544971062044114}
-  numberOfUses: 2
-  healAmount: 25
 --- !u!114 &1144231039943617699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,8 +1281,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 4356668547043171501, guid: 42d1c1dab5c2d614a8e904dd8abc51b9, type: 3}
-  throwForce: 5
-  AOEdamage: 100
+--- !u!54 &5214173781583381888
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5023092998495322557}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &5112654203534905627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1586,7 @@ MonoBehaviour:
   Slot_3: {fileID: 4749800980406192641}
   Slot_4: {fileID: 5640679237240572526}
   Slot_5: {fileID: 311668950652157557}
-  AK47: {fileID: 0}
+  weapon: {fileID: 0}
   IronSword: {fileID: 6173434478866029382}
   ArmorPlate: {fileID: 8651647220983830339}
   MedKit: {fileID: 7640035569634747156}
@@ -1692,8 +1706,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 7466305693158208125, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
   attackDamage: 25
-  attackCooldown: 1.5
-  attackRange: 1.5
 --- !u!65 &281601458275549396
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2216,8 +2228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 5023092998495322557}
   Green: {fileID: 2048544971062044114}
-  numberOfUses: 2
-  healAmount: 25
 --- !u!1 &7812023908526380216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,8 +2573,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 5023092998495322557}
   Blue: {fileID: 7935280035915740907}
-  numberOfUses: 2
-  healArmorAmount: 25
 --- !u!1 &8994499683756255767
 GameObject:
   m_ObjectHideFlags: 0

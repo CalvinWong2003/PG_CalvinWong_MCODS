@@ -74,7 +74,6 @@ public class PlayerHealthArmor : MonoBehaviour
     }
     private void Die()
     {
-        Destroy(gameObject);
         Time.timeScale = 0f;
         gameOverUI.ShowGameOver();
     }

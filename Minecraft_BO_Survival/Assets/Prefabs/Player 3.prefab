@@ -928,9 +928,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotgunBullets: {fileID: 2185528678774818647, guid: 52abefe5bec7ed64980c46c4db5b0009, type: 3}
-  bulletSpeed: 30
-  pelletCount: 5
-  spreadAngle: 10
   reloadTime: 4
   magazineCapacity: 8
 --- !u!1 &3953284620932976004
@@ -1217,6 +1214,7 @@ GameObject:
   - component: {fileID: 7419960120591816947}
   - component: {fileID: 7754225612235466844}
   - component: {fileID: 897868721120337348}
+  - component: {fileID: 3208266640875831910}
   m_Layer: 0
   m_Name: Player 3
   m_TagString: Player
@@ -1305,7 +1303,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1325,7 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d149ed593b333459dab6f3d553de57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
 --- !u!114 &8751230030364288341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,12 +1337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 5053428826085765338}
-  Blue: {fileID: 7893466473033549708}
-  Green: {fileID: 2303901297164653749}
   maxArmor: 100
   maxHealth: 100
-  currentArmor: 0
-  currentHealth: 0
   gameOverUI: {fileID: 0}
 --- !u!114 &1447568951973354951
 MonoBehaviour:
@@ -1359,9 +1353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotgunBullets: {fileID: 2185528678774818647, guid: 52abefe5bec7ed64980c46c4db5b0009, type: 3}
-  bulletSpeed: 30
-  pelletCount: 5
-  spreadAngle: 10
   reloadTime: 4
   magazineCapacity: 8
 --- !u!114 &6201683766743813884
@@ -1378,8 +1369,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 7466305693158208125, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
   attackDamage: 25
-  attackCooldown: 1.5
-  attackRange: 1.5
 --- !u!114 &7419960120591816947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1394,8 +1383,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 5053428826085765338}
   Blue: {fileID: 7893466473033549708}
-  numberOfUses: 2
-  healArmorAmount: 25
 --- !u!114 &7754225612235466844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1410,8 +1397,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 5053428826085765338}
   Green: {fileID: 2303901297164653749}
-  numberOfUses: 2
-  healAmount: 25
 --- !u!114 &897868721120337348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,8 +1410,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 4356668547043171501, guid: 42d1c1dab5c2d614a8e904dd8abc51b9, type: 3}
-  throwForce: 5
-  AOEdamage: 100
+--- !u!54 &3208266640875831910
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5053428826085765338}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &5111980310293492653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,8 +1483,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 4356668547043171501, guid: 42d1c1dab5c2d614a8e904dd8abc51b9, type: 3}
-  throwForce: 100
-  AOEdamage: 100
 --- !u!1 &5471880379507646148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,7 +1686,7 @@ MonoBehaviour:
   Slot_3: {fileID: 4791355129313278822}
   Slot_4: {fileID: 5607906400211188489}
   Slot_5: {fileID: 560622887103139602}
-  AK47: {fileID: 0}
+  weapon: {fileID: 0}
   IronSword: {fileID: 6212873167399692833}
   ArmorPlate: {fileID: 8900288820984145444}
   MedKit: {fileID: 7607183501077697139}
@@ -2041,8 +2049,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 7466305693158208125, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
   attackDamage: 25
-  attackCooldown: 1.5
-  attackRange: 1.5
 --- !u!65 &35058757400555955
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2322,8 +2328,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 5053428826085765338}
   Green: {fileID: 2303901297164653749}
-  numberOfUses: 2
-  healAmount: 25
 --- !u!1 &8069637525423891935
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,8 +2589,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 5053428826085765338}
   Blue: {fileID: 7893466473033549708}
-  numberOfUses: 2
-  healArmorAmount: 25
 --- !u!1 &9171051808044931952
 GameObject:
   m_ObjectHideFlags: 0
