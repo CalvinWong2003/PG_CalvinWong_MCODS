@@ -6,20 +6,24 @@ public class ArmorPlatePickup : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        Collider[] pickipItems = Physics.OverlapSphere(transform.position, 1f);
+        foreach(Collider p in pickipItems)
         {
-            CW_ArmorPlating playerUses = other.GetComponent<CW_ArmorPlating>();
-            if(playerUses != null)
+            if (other.CompareTag("Player"))
             {
-                playerUses.AddUse();
-            }
+                CW_ArmorPlating playerUses = other.GetComponent<CW_ArmorPlating>();
+                if (playerUses != null)
+                {
+                    playerUses.AddUse();
+                }
 
-            GameController pickupSpawner = FindObjectOfType<GameController>();
-            if(pickupSpawner != null)
-            {
-                pickupSpawner.StartRespawnTimer(transform.parent.GetSiblingIndex());
+                GameController pickupSpawner = FindObjectOfType<GameController>();
+                if (pickupSpawner != null)
+                {
+                    pickupSpawner.StartRespawnTimer(transform.parent.GetSiblingIndex());
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 }

@@ -5,39 +5,29 @@ using UnityEngine;
 public class CW_IronSword : MonoBehaviour, IUsable
 {
     public Transform Enemy;
-
-    [Tooltip("Amount of damage the Player deals with the iron sword")]
     public int attackDamage = 25;
-
-    [Tooltip("Cooldown between attacks")]
-    public float attackCooldown = 2.5f;
-
-    [Tooltip("Attack range of iron sword")]
-    public float attackRange = 1.5f;
-
-    float timer = 0;
+    float attackCooldown = 2.5f;
+    float attackRange = 1.5f;
+    float timer;
 
     public void use()
     {
         swingSword();
     }
-    void Update()
-    {
-        print(timer);
-        timer -= Time.deltaTime;
-        if (Input.GetMouseButtonDown(0))
-        {
-            swingSword();
-        }
-    }
     internal void swingSword()
     {
         Debug.Log("Swinging sword!");
-        float distanceToEnemy = Vector3.Distance(transform.position, Enemy.position);
-        if (distanceToEnemy <= attackRange)
+
+        // check the killzone
+        Collider[] victims = Physics.OverlapSphere(transform.position + (2* transform.forward), 0.5f);
+
+        IHealth damageable = victims[0].GetComponent<IHealth>();
+
+        if (damageable != null)
         {
-            AttackEnemy();
+            damageable.takeDamage(attackDamage);
         }
+
     }
 
     private void AttackEnemy()
@@ -49,6 +39,7 @@ public class CW_IronSword : MonoBehaviour, IUsable
         {
             if(hit.collider.CompareTag("Enemy"))
             {
+                timer -= Time.deltaTime;
                 if (timer < 0)
                 {
                     EnemyScript enemyStats = Enemy.GetComponent<EnemyScript>();

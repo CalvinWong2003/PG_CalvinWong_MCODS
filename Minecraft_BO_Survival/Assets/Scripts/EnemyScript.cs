@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -7,16 +8,19 @@ using UnityEngine.UI;
 public class EnemyScript : MonoBehaviour,IHealth
 {
     Transform Player;
-    float speed = 3f;
     float damage = 10f;
     float attackRange = 1f;
-    private float attackCooldown = 3.0f;
+    float attackCooldown = 5.0f;
     float timer = 0;
-    
+
+    bool isHit = false;
+    private Color mainColor;
+    private Color defaultColor = Color.green;
+    private Color isHitColor = Color.red;
     float currentHealth;
     float maxHealth = 100f;
     NavMeshAgent navigate;
-    public int scoreValue = 20;
+    int scoreValue = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,8 @@ public class EnemyScript : MonoBehaviour,IHealth
         currentHealth = maxHealth;
         CharacterControllerScript thePlayerScript = FindObjectOfType<CharacterControllerScript>();
         Player = thePlayerScript.transform;
+        mainColor = defaultColor;
+        isHit = false;
     }
     // Update is called once per frame
     void Update()
@@ -31,7 +37,6 @@ public class EnemyScript : MonoBehaviour,IHealth
         timer -= Time.deltaTime;
         if(Player != null)
         {
-            //transform.position = Vector3.MoveTowards(transform.position, Player.position, speed * Time.deltaTime);
             navigate.SetDestination(Player.position);
             float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
             if(distanceToPlayer <= attackRange)
@@ -58,7 +63,13 @@ public class EnemyScript : MonoBehaviour,IHealth
     }
     public void TakeDamage(float damage)
     {
+        isHit = true;
+        mainColor = isHitColor;
+
         currentHealth -= damage;
+
+        isHit = false;
+        mainColor = defaultColor;
 
         if(currentHealth <= 0)
         {
@@ -76,7 +87,6 @@ public class EnemyScript : MonoBehaviour,IHealth
         if(other.CompareTag("Bullet"))
         {
             float bulletDamage = 30f;
-
             Bullet bullet = other.GetComponent<Bullet>();
 
             if (bullet != null)
@@ -89,7 +99,6 @@ public class EnemyScript : MonoBehaviour,IHealth
         if (other.CompareTag("Sniper Bullet"))
         {
             float bulletDamage = 100f;
-
             SniperBullet sniperBullet = other.GetComponent<SniperBullet>();
 
             if (sniperBullet != null)
@@ -102,7 +111,6 @@ public class EnemyScript : MonoBehaviour,IHealth
         if (other.CompareTag("Shotgun Bullets"))
         {
             float bulletDamage = 50f;
-
             ShotgunBullets shotgunBullet = other.GetComponent<ShotgunBullets>();
 
             if (shotgunBullet != null)
@@ -115,7 +123,6 @@ public class EnemyScript : MonoBehaviour,IHealth
         if (other.CompareTag("Revolver Bullet"))
         {
             float bulletDamage = 45f;
-
             RevolverBullet revolverBullet = other.GetComponent<RevolverBullet>();
 
             if (revolverBullet != null)
@@ -132,6 +139,7 @@ public class EnemyScript : MonoBehaviour,IHealth
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
+            Die();
             Destroy(gameObject);
         }
     }

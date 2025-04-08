@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3317847593113406242}
   - component: {fileID: 2553305384808856461}
   - component: {fileID: 4937770914085834261}
+  - component: {fileID: -415180816574630690}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -186,7 +187,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -206,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d149ed593b333459dab6f3d553de57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
 --- !u!114 &3567202735151412868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,12 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1068127281045037835}
-  Blue: {fileID: 2700078727169479773}
-  Green: {fileID: 6272028435012896612}
   maxArmor: 100
   maxHealth: 100
-  currentArmor: 0
-  currentHealth: 0
   gameOverUI: {fileID: 0}
 --- !u!114 &4685323778818165188
 MonoBehaviour:
@@ -256,8 +253,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 7466305693158208125, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
   attackDamage: 25
-  attackCooldown: 1.5
-  attackRange: 1.5
 --- !u!114 &3317847593113406242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,8 +267,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1068127281045037835}
   Blue: {fileID: 2700078727169479773}
-  numberOfUses: 2
-  healArmorAmount: 25
 --- !u!114 &2553305384808856461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,8 +281,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1068127281045037835}
   Green: {fileID: 6272028435012896612}
-  numberOfUses: 2
-  healAmount: 25
 --- !u!114 &4937770914085834261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,8 +294,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 4356668547043171501, guid: 42d1c1dab5c2d614a8e904dd8abc51b9, type: 3}
-  throwForce: 5
-  AOEdamage: 100
+--- !u!54 &-415180816574630690
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068127281045037835}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &4155934516469209442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,8 +1029,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1068127281045037835}
   Green: {fileID: 6272028435012896612}
-  numberOfUses: 2
-  healAmount: 25
 --- !u!4 &3038336685199514392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 799756338765751661, guid: 2b43bd06739952d4c9a6af52923c74d2, type: 3}
@@ -1102,8 +1116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 4356668547043171501, guid: 42d1c1dab5c2d614a8e904dd8abc51b9, type: 3}
-  throwForce: 100
-  AOEdamage: 100
 --- !u!4 &5557520954614496087 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1511250176007453252, guid: 7550a7b458d973f49a340d4843f45329, type: 3}
@@ -1204,8 +1216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1068127281045037835}
   Blue: {fileID: 2700078727169479773}
-  numberOfUses: 2
-  healArmorAmount: 25
 --- !u!4 &4052218828661976911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7406040973884591122, guid: 62700279522f5b8489b472da9a47dce6, type: 3}
