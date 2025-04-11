@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638797036226304315
+      ticks: 638799551179222682
     m_Hash: 4077102595
   m_LockFileStatus:
     m_FilePath: C:/Users/T00247209/Desktop/PG_CW/Minecraft_BO_Survival/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638797036226304315
+      ticks: 638799551179222682
     m_Hash: 1671963039
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -3516,8 +3516,10 @@ m_ResolvedPackages:
     - 1.0.3
     - 2.0.0
     - 2.0.1
+    - 2.1.0
     compatible:
     - 2.0.1
+    - 2.1.0
     recommended: 2.0.1
     deprecated: []
   dependencies: []

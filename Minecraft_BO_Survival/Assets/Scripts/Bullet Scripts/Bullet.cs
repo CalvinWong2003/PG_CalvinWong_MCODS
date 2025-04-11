@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float damage = 30f;
-    public float speed = 20f;
-    public float lifetime = 5f;
+    internal int damage = 30;
+    internal float speed = 20;
+    internal float lifetime = 5;
 
     // Start is called before the first frame update
-    void Start()
+    internal void Start()
     {
         Destroy(gameObject, lifetime);
     }
 
     // Update is called once per frame
-    void Update()
+    internal void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+
+    protected virtual void OnCollisionEnter(Collision collision)
+    {
+        IHealth damageable = collision.gameObject.GetComponent<IHealth>();
+
+        if (damageable != null)
+        {
+            damageable.takeDamage(damage);
+        }
+        Destroy(gameObject);
     }
 }

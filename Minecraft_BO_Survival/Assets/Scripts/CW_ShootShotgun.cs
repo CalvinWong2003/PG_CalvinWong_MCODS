@@ -80,7 +80,6 @@ public class CW_ShootShotgun : MonoBehaviour, IUsable
     void Update()
     {
         Vector3 worldForward = transform.TransformDirection(transform.forward);
-        print(Camera.main.transform.forward);
     }
     IEnumerator Reload()
     {

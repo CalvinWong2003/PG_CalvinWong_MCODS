@@ -29,27 +29,4 @@ public class CW_IronSword : MonoBehaviour, IUsable
         }
 
     }
-
-    private void AttackEnemy()
-    {
-        print("Attacking!");
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, attackRange))
-        {
-            if(hit.collider.CompareTag("Enemy"))
-            {
-                timer -= Time.deltaTime;
-                if (timer < 0)
-                {
-                    EnemyScript enemyStats = Enemy.GetComponent<EnemyScript>();
-                    if (enemyStats != null)
-                    {
-                        enemyStats.TakeDamage(attackDamage);
-                    }
-                    timer = attackCooldown;
-                }
-            }
-        }
-    }
 }
