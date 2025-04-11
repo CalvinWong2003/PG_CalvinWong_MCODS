@@ -2,14 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverScript : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    Button RetryButton;
+    Button LevelSelectButton;
+    Button QuitButton;
 
     void Start()
     {
         gameOverPanel.SetActive(false);
+        Button[] buttons = GetComponentsInChildren<Button>();
+        foreach (Button b in buttons)
+        {
+            if (b.name == "RetryButton")
+            {
+                RetryButton = b;
+            }
+            if (b.name == "LevelSelect")
+            {
+                LevelSelectButton = b;
+            }
+            if (b.name == "QuitButton")
+            {
+                QuitButton = b;
+            }
+        }
     }
 
     public void ShowGameOver()
