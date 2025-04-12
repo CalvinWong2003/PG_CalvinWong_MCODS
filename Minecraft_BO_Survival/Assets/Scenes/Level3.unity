@@ -16164,9 +16164,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverUI
       objectReference: {fileID: 0}
-    - target: {fileID: 2797400280866382011, guid: 1f5eb00ad8023d24fb27e9078635229b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 3824224726400999486, guid: 1f5eb00ad8023d24fb27e9078635229b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
