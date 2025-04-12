@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class EnemyScript : MonoBehaviour,IHealth
 {
     Transform Player;
-    float damage = 10f;
+    int damage = 10;
     float attackRange = 1f;
     float attackCooldown = 5.0f;
     float timer = 0;
@@ -21,9 +21,12 @@ public class EnemyScript : MonoBehaviour,IHealth
     float maxHealth = 100f;
     NavMeshAgent navigate;
     int scoreValue = 20;
+
+    Renderer myRenderer;
     // Start is called before the first frame update
     void Start()
     {
+        myRenderer = GetComponent<Renderer>();
         navigate = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
         CharacterControllerScript thePlayerScript = FindObjectOfType<CharacterControllerScript>();
@@ -53,27 +56,12 @@ public class EnemyScript : MonoBehaviour,IHealth
         if (timer < 0)
         {
             print("Hitting");
-            PlayerHealthArmor playerStats = Player.GetComponent<PlayerHealthArmor>();
-            if (playerStats != null)
+            IHealth victim = Player.GetComponent<IHealth>();
+            if (victim != null)
             {
-                playerStats.TakeDamage(damage);
+                victim.takeDamage(damage);
             }
             timer = attackCooldown;
-        }
-    }
-    public void TakeDamage(float damage)
-    {
-        isHit = true;
-        mainColor = isHitColor;
-
-        currentHealth -= damage;
-
-        isHit = false;
-        mainColor = defaultColor;
-
-        if(currentHealth <= 0)
-        {
-            Die();
         }
     }
     void Die()
@@ -82,61 +70,12 @@ public class EnemyScript : MonoBehaviour,IHealth
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Bullet"))
-        {
-            float bulletDamage = 30f;
-            Bullet bullet = other.GetComponent<Bullet>();
-
-            if (bullet != null)
-            {
-                bulletDamage = bullet.damage;
-            }
-            TakeDamage(bulletDamage);
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("Sniper Bullet"))
-        {
-            float bulletDamage = 100f;
-            SniperBullet sniperBullet = other.GetComponent<SniperBullet>();
-
-            if (sniperBullet != null)
-            {
-                bulletDamage = sniperBullet.damage;
-            }
-            TakeDamage(bulletDamage);
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("Shotgun Bullets"))
-        {
-            float bulletDamage = 50f;
-            ShotgunBullets shotgunBullet = other.GetComponent<ShotgunBullets>();
-
-            if (shotgunBullet != null)
-            {
-                bulletDamage = shotgunBullet.damage;
-            }
-            TakeDamage(bulletDamage);
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("Revolver Bullet"))
-        {
-            float bulletDamage = 45f;
-            RevolverBullet revolverBullet = other.GetComponent<RevolverBullet>();
-
-            if (revolverBullet != null)
-            {
-                bulletDamage = revolverBullet.damage;
-            }
-            TakeDamage(bulletDamage);
-            Destroy(other.gameObject);
-        }
-    }
-
     public void takeDamage(int amount)
     {
         currentHealth -= amount;
+        isHit = true;
+        myRenderer.material.color = isHitColor;
+
         if(currentHealth <= 0)
         {
             Die();

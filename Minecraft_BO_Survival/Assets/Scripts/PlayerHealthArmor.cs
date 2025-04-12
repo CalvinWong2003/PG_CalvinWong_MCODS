@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealthArmor : MonoBehaviour
+public class PlayerHealthArmor : MonoBehaviour, IHealth
 {
     //Player's armor and health bar
     public GameObject Player;
@@ -21,11 +21,23 @@ public class PlayerHealthArmor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Image[] images = GetComponentsInChildren<Image>();
+        foreach (Image i in images)
+        {
+            if (i.name == "Blue")
+            {
+                Blue = i;
+            }
+            if(i.name == "Green")
+            {
+                Green = i;
+            }
+        }
         currentArmor = maxArmor;
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void takeDamage(int damage)
     {
         if(currentArmor > 0)
         {

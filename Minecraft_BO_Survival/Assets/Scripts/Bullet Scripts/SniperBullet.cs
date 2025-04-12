@@ -2,21 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SniperBullet : MonoBehaviour
+public class SniperBullet :Bullet
 {
-    public float damage = 100f;
-    public float speed = 40f;
-    public float lifetime = 7.5f;
+
 
     // Start is called before the first frame update
     void Start()
-    {
-        Destroy(gameObject, lifetime);
+    {    
+        damage = 100;
+        speed = 40f;
+        lifetime = 7.5f;
+        base.Start();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        base.Update();
+    }
+    protected override void OnCollisionEnter(Collision collision)
+    {
+        base.OnCollisionEnter(collision); // Call base class implementation
+        Debug.Log($"Derived class handling collision with {collision.gameObject.name}");
     }
 }
