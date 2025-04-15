@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealthArmor : MonoBehaviour, IHealth
@@ -15,8 +16,6 @@ public class PlayerHealthArmor : MonoBehaviour, IHealth
     public float maxHealth = 100f;
     float currentArmor;
     float currentHealth;
-
-    public GameOverScript gameOverUI;
 
     // Start is called before the first frame update
     void Start()
@@ -72,21 +71,12 @@ public class PlayerHealthArmor : MonoBehaviour, IHealth
     }
     public void Heal(float amount)
     {
-        CW_MedKit medkit = Player.GetComponent<CW_MedKit>();
-        if(medkit != null)
-        {
-            medkit.healAmount += (int)currentHealth;
-        }
-        CW_ArmorPlating armorplate = Player.GetComponent<CW_ArmorPlating>();
-        if (armorplate != null)
-        {
-            armorplate.healArmorAmount += (int)currentArmor;
-        }
+        currentArmor += amount;
+        currentHealth += amount;
         UpdateBars();
     }
     private void Die()
     {
         Time.timeScale = 0f;
-        gameOverUI.ShowGameOver();
     }
 }

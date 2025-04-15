@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class CW_MedKit : MonoBehaviour, IUsable
 {
     public GameObject Player;
-    public Image Green;
+    Image Green;
     float numberOfUses = 2;
-    float numberOfUseLimit = 2f;
+    float numberOfUseLimit;
     internal int healAmount = 25;
 
     public void AddUse()
@@ -18,6 +18,14 @@ public class CW_MedKit : MonoBehaviour, IUsable
 
     void Start()
     {
+        Image[] images = GetComponentsInChildren<Image>();
+        foreach (Image i in images)
+        {
+            if(i.name == "Green")
+            {
+                Green = i;
+            }
+        }
         numberOfUseLimit = numberOfUses;
     }
 
@@ -43,9 +51,6 @@ public class CW_MedKit : MonoBehaviour, IUsable
     }
     public void use()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            useMedKit();
-        }
+        useMedKit();
     }
 }

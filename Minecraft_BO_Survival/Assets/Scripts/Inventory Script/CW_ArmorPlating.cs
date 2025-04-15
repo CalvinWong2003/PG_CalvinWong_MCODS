@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class CW_ArmorPlating : MonoBehaviour, IUsable
 {
     public GameObject Player;
-    public Image Blue;
+    Image Blue;
     float numberOfUses = 2f;
-    float numberOfUseLimit = 2f;
+    float numberOfUseLimit;
     internal int healArmorAmount = 25;
 
     public void AddUse()
@@ -18,6 +18,14 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
 
     void Start()
     {
+        Image[] images = GetComponentsInChildren<Image>();
+        foreach (Image i in images)
+        {
+            if(i.name == "Blue")
+            {
+                Blue = i;
+            }
+        }
         numberOfUseLimit = numberOfUses;
     }
 
@@ -45,9 +53,6 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
 
     public void use()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            useArmorPlating();
-        }
+        useArmorPlating();
     }
 }
