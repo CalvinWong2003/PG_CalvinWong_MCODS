@@ -10,7 +10,7 @@ public class MedKitPickup : MonoBehaviour
         Collider[] pickupItems = Physics.OverlapSphere(transform.position, 1f);
         foreach(Collider p in pickupItems)
         {
-            if (other.CompareTag("Player"))
+            if (p.CompareTag("Player"))
             {
                 CW_MedKit playerUses = other.GetComponent<CW_MedKit>();
                 if (playerUses != null)

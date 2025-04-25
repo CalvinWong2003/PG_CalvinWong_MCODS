@@ -34734,7 +34734,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 178174473827358873, guid: 28524465156851c409b6a0a82bd4be26, type: 3}
       propertyPath: speed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 718879117277822217, guid: 28524465156851c409b6a0a82bd4be26, type: 3}
       propertyPath: weapon
@@ -34799,6 +34799,14 @@ PrefabInstance:
     - target: {fileID: 5053428826085765338, guid: 28524465156851c409b6a0a82bd4be26, type: 3}
       propertyPath: m_Name
       value: Player 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607183501077697139, guid: 28524465156851c409b6a0a82bd4be26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893466473033549708, guid: 28524465156851c409b6a0a82bd4be26, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8751230030364288341, guid: 28524465156851c409b6a0a82bd4be26, type: 3}
       propertyPath: gameOverUI

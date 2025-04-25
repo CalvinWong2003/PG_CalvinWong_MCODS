@@ -9,7 +9,7 @@ public class ArmorPlatePickup : MonoBehaviour
         Collider[] pickipItems = Physics.OverlapSphere(transform.position, 1f);
         foreach(Collider p in pickipItems)
         {
-            if (other.CompareTag("Player"))
+            if (p.CompareTag("Player"))
             {
                 CW_ArmorPlating playerUses = other.GetComponent<CW_ArmorPlating>();
                 if (playerUses != null)

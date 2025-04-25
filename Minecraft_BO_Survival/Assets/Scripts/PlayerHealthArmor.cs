@@ -78,5 +78,6 @@ public class PlayerHealthArmor : MonoBehaviour, IHealth
     private void Die()
     {
         Time.timeScale = 0f;
+        FindAnyObjectByType<GameOverManager>().PlayerDied();
     }
 }

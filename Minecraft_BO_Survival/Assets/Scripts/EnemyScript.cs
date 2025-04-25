@@ -14,9 +14,9 @@ public class EnemyScript : MonoBehaviour,IHealth
     float timer = 0;
 
     bool isHit = false;
-    private Color mainColor;
     private Color defaultColor = Color.green;
     private Color isHitColor = Color.red;
+    private float colorDuration = 0.5f;
     float currentHealth;
     float maxHealth = 100f;
     NavMeshAgent navigate;
@@ -31,8 +31,7 @@ public class EnemyScript : MonoBehaviour,IHealth
         currentHealth = maxHealth;
         CharacterControllerScript thePlayerScript = FindObjectOfType<CharacterControllerScript>();
         Player = thePlayerScript.transform;
-        mainColor = defaultColor;
-        isHit = false;
+        myRenderer.material.color = defaultColor;
     }
     // Update is called once per frame
     void Update()
@@ -75,6 +74,13 @@ public class EnemyScript : MonoBehaviour,IHealth
         currentHealth -= amount;
         isHit = true;
         myRenderer.material.color = isHitColor;
+        timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            isHit = false;
+            myRenderer.material.color = defaultColor;
+            timer = colorDuration;
+        }
 
         if(currentHealth <= 0)
         {

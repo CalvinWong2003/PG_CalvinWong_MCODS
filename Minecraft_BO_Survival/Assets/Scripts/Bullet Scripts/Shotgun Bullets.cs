@@ -24,6 +24,5 @@ public class ShotgunBullets :Bullet
     protected override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision); // Call base class implementation
-        Debug.Log($"Derived class handling collision with {collision.gameObject.name}");
     }
 }
