@@ -605,7 +605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3216758979113614670
@@ -858,7 +858,7 @@ Transform:
   m_GameObject: {fileID: 3534317273260264250}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.4, z: 0}
+  m_LocalPosition: {x: 0.5, y: -0.4, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1323,7 +1323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d149ed593b333459dab6f3d553de57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
 --- !u!114 &8751230030364288341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,7 +1338,6 @@ MonoBehaviour:
   Player: {fileID: 5053428826085765338}
   maxArmor: 100
   maxHealth: 100
-  gameOverUI: {fileID: 0}
 --- !u!114 &1447568951973354951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,7 +1365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55efcf09d0d104240ae25cee6785ce7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 7466305693158208125, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
+  Enemy: {fileID: 7897572108165865684, guid: 2847fa0eb223389439b5bbf00aa7c700, type: 3}
   attackDamage: 25
 --- !u!114 &7419960120591816947
 MonoBehaviour:
@@ -1382,7 +1380,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 5053428826085765338}
-  Blue: {fileID: 7893466473033549708}
 --- !u!114 &7754225612235466844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1396,7 +1393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 5053428826085765338}
-  Green: {fileID: 2303901297164653749}
 --- !u!114 &897868721120337348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,7 +1682,7 @@ MonoBehaviour:
   Slot_3: {fileID: 4791355129313278822}
   Slot_4: {fileID: 5607906400211188489}
   Slot_5: {fileID: 560622887103139602}
-  weapon: {fileID: 0}
+  weapon: {fileID: 3534317273260264250}
   IronSword: {fileID: 6212873167399692833}
   ArmorPlate: {fileID: 8900288820984145444}
   MedKit: {fileID: 7607183501077697139}
@@ -2327,7 +2323,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 5053428826085765338}
-  Green: {fileID: 2303901297164653749}
 --- !u!1 &8069637525423891935
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,7 +2583,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 5053428826085765338}
-  Blue: {fileID: 7893466473033549708}
 --- !u!1 &9171051808044931952
 GameObject:
   m_ObjectHideFlags: 0

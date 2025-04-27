@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638805747823943655
+      ticks: 638811869892218918
     m_Hash: 4077102595
   m_LockFileStatus:
     m_FilePath: C:/Users/cwong/Desktop/PG_CalvinWong_MCODS/Minecraft_BO_Survival/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638805747823953669
+      ticks: 638811869892218918
     m_Hash: 1671963039
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -52,6 +52,7 @@ m_ResolvedPackages:
     - 1.1.3
     - 1.1.4
     - 1.1.5
+    - 1.1.6
     - 2.0.0-pre.3
     - 2.0.0-pre.4
     - 2.0.0
@@ -62,7 +63,8 @@ m_ResolvedPackages:
     - 2.0.7
     compatible:
     - 1.1.5
-    recommended: 1.1.5
+    - 1.1.6
+    recommended: 1.1.6
     deprecated: []
   dependencies:
   - name: com.unity.modules.ai

@@ -14,7 +14,7 @@ public class EnemyScript : MonoBehaviour,IHealth
     float timer = 0;
 
     bool isHit = false;
-    private Color defaultColor = Color.green;
+    private Color defaultColor;
     private Color isHitColor = Color.red;
     private float colorDuration = 0.5f;
     float currentHealth;
@@ -74,13 +74,8 @@ public class EnemyScript : MonoBehaviour,IHealth
         currentHealth -= amount;
         isHit = true;
         myRenderer.material.color = isHitColor;
-        timer -= Time.deltaTime;
-        if(timer <= 0)
-        {
-            isHit = false;
-            myRenderer.material.color = defaultColor;
-            timer = colorDuration;
-        }
+        isHit = false;
+        myRenderer.material.color = defaultColor;
 
         if(currentHealth <= 0)
         {

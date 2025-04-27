@@ -207,7 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d149ed593b333459dab6f3d553de57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
 --- !u!114 &3567202735151412868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +222,6 @@ MonoBehaviour:
   Player: {fileID: 1068127281045037835}
   maxArmor: 100
   maxHealth: 100
-  gameOverUI: {fileID: 0}
 --- !u!114 &4685323778818165188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55efcf09d0d104240ae25cee6785ce7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 7466305693158208125, guid: 82c7d8f940c90e545a98d4ef7ef09321, type: 3}
+  Enemy: {fileID: 7897572108165865684, guid: 2847fa0eb223389439b5bbf00aa7c700, type: 3}
   attackDamage: 25
 --- !u!114 &3317847593113406242
 MonoBehaviour:
@@ -266,7 +264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1068127281045037835}
-  Blue: {fileID: 2700078727169479773}
 --- !u!114 &2553305384808856461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1068127281045037835}
-  Green: {fileID: 6272028435012896612}
 --- !u!114 &4937770914085834261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,7 +1028,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1068127281045037835}
-  Green: {fileID: 6272028435012896612}
 --- !u!4 &3038336685199514392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 799756338765751661, guid: 2b43bd06739952d4c9a6af52923c74d2, type: 3}
@@ -1219,7 +1214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1068127281045037835}
-  Blue: {fileID: 2700078727169479773}
 --- !u!4 &4052218828661976911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7406040973884591122, guid: 62700279522f5b8489b472da9a47dce6, type: 3}
