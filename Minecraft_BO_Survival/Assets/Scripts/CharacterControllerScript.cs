@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class CharacterControllerScript : MonoBehaviour
 {
-    float speed = 40f;
+    float speed = 10f;
     private Rigidbody rb;
     IUsable currentObject;
     List<IUsable> allObjects;

@@ -22418,6 +22418,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3196037285493044915, guid: 87c4857c253f4e241a8c18a207441f2d, type: 3}
     - target: {fileID: 1896474636095351015, guid: ce9a241d387ac8148a1e67bb422d1707, type: 3}
+      propertyPath: Zombie
+      value: 
+      objectReference: {fileID: 3196037285493044915, guid: 87c4857c253f4e241a8c18a207441f2d, type: 3}
+    - target: {fileID: 1896474636095351015, guid: ce9a241d387ac8148a1e67bb422d1707, type: 3}
       propertyPath: scoreDisplay
       value: 
       objectReference: {fileID: 1167200854}
@@ -22799,13 +22803,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 487281321586970267, guid: a75c23edacde34549bc39b93a444c244, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 2634153845642054437, guid: a75c23edacde34549bc39b93a444c244, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.786501
       objectReference: {fileID: 0}
     - target: {fileID: 2634153845642054437, guid: a75c23edacde34549bc39b93a444c244, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2634153845642054437, guid: a75c23edacde34549bc39b93a444c244, type: 3}
       propertyPath: m_LocalPosition.z
