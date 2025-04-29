@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     //Instatiating Enemy from specific spawn points
-    public GameObject Enemy;
+    public GameObject Zombie;
     public Transform[] spawnPoints;
     public float spawnRate = 3f;
 
@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
     void SpawnEnemy()
     {
         int index = Random.Range(0, spawnPoints.Length);
-        Instantiate(Enemy, spawnPoints[index].position, Quaternion.identity);
+        Instantiate(Zombie, spawnPoints[index].position, Quaternion.identity);
     }
 
     void SpawnPickup(int index)

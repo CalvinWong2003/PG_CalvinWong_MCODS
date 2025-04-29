@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour,IHealth
 {
     Transform Player;
     int damage = 10;
-    float attackRange = 1f;
+    float attackRange = 1.5f;
     float attackCooldown = 5.0f;
     float timer = 0;
 
@@ -36,11 +36,13 @@ public class EnemyScript : MonoBehaviour,IHealth
     // Update is called once per frame
     void Update()
     {
+      
         timer -= Time.deltaTime;
         if(Player != null)
         {
             navigate.SetDestination(Player.position);
             float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
+            
             if(distanceToPlayer <= attackRange)
             {
                 AttackPlayer();
@@ -74,8 +76,12 @@ public class EnemyScript : MonoBehaviour,IHealth
         currentHealth -= amount;
         isHit = true;
         myRenderer.material.color = isHitColor;
-        isHit = false;
-        myRenderer.material.color = defaultColor;
+        timer += Time.deltaTime;
+        if(timer >= colorDuration)
+        {
+            isHit = false;
+            myRenderer.material.color = defaultColor;
+        }
 
         if(currentHealth <= 0)
         {
