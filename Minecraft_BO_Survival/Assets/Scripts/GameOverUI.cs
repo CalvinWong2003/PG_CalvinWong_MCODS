@@ -18,7 +18,7 @@ public class GameOverUI : MonoBehaviour
         else
         {
             Debug.Log("No valid level stored. Loading default level...");
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene("Level1");
         }
     }
     public void LevelSelect()
@@ -33,7 +33,7 @@ public class GameOverUI : MonoBehaviour
 
     private bool isValidLevel(string levelname)
     {
-        return levelname == "Level 1" || levelname == "Level 2" || 
-                levelname == "Level 3" || levelname == "Level 4";
+        return levelname == "Level1" || levelname == "Level2" || 
+                levelname == "Level3" || levelname == "Level4";
     }
 }
