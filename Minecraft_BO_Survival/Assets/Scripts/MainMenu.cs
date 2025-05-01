@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public string LevelSelectionName = "LevelSelection";
     public void StartGame()
     {
-        SceneManager.LoadScene("LevelSelection");
+        SceneManager.LoadScene(LevelSelectionName);
     }
     public void QuitGame()
     {

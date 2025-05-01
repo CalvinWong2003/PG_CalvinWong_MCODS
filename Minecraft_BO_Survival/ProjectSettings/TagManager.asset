@@ -13,6 +13,8 @@ TagManager:
   - Shotgun Bullets
   - Revolver Bullet
   - Game Structure
+  - ArmorPlate
+  - MedKit
   layers:
   - Default
   - TransparentFX

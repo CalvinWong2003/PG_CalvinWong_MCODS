@@ -55,5 +55,19 @@ public class CharacterControllerScript : MonoBehaviour
             transform.position -= transform.right * speed * Time.deltaTime;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("MedKit"))
+        {
+            CW_MedKit medkitPickUp = new CW_MedKit();
+            medkitPickUp.AddUse();
+        }
+        else if(other.CompareTag("ArmorPlate"))
+        {
+            CW_ArmorPlating armorplatePickUp = new CW_ArmorPlating();
+            armorplatePickUp.AddUse();
+        }
+    }
 }
 
