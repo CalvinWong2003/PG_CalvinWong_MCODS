@@ -7,8 +7,8 @@ public class CW_MedKit : MonoBehaviour, IUsable
 {
     public GameObject Player;
     Image Green;
-    float numberOfUses = 2;
-    float numberOfUseLimit;
+    float numberOfUses;
+    float numberOfUseLimit = 2;
     internal int healAmount = 25;
 
     public void AddUse()
@@ -26,7 +26,7 @@ public class CW_MedKit : MonoBehaviour, IUsable
                 Green = i;
             }
         }
-        numberOfUseLimit = numberOfUses;
+        numberOfUses = numberOfUseLimit;
     }
 
     internal void useMedKit()
@@ -39,6 +39,7 @@ public class CW_MedKit : MonoBehaviour, IUsable
                 if(playerHealth != null)
                 {
                     playerHealth.Heal(healAmount);
+                    numberOfUses--;
                 }
                 Debug.Log("Number of Med Kits left: " + numberOfUses);
             }
@@ -46,7 +47,6 @@ public class CW_MedKit : MonoBehaviour, IUsable
             {
                 Debug.Log("No Med Kits available!!!");
             }
-            numberOfUses--;
         }
     }
     public void use()

@@ -62,11 +62,13 @@ public class CharacterControllerScript : MonoBehaviour
         {
             CW_MedKit medkitPickUp = new CW_MedKit();
             medkitPickUp.AddUse();
+            Destroy(other.gameObject);
         }
         else if(other.CompareTag("ArmorPlate"))
         {
             CW_ArmorPlating armorplatePickUp = new CW_ArmorPlating();
             armorplatePickUp.AddUse();
+            Destroy(other.gameObject);
         }
     }
 }

@@ -7,33 +7,19 @@ using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
+    string levelSelectionName = "LevelSelection";
     public void Retry()
     {
-        string levelToReload = GameOverManager.lastSceneBeforeGameOver;
-        
-        if(!string.IsNullOrEmpty(levelToReload) && isValidLevel(levelToReload))
-        {
-            SceneManager.LoadScene(levelToReload);
-        }
-        else
-        {
-            Debug.Log("No valid level stored. Loading default level...");
-            SceneManager.LoadScene("Level1");
-        }
+        string currentScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentScene);
     }
     public void LevelSelect()
     {
-        SceneManager.LoadScene("LevelSelection");
+        SceneManager.LoadScene(levelSelectionName);
     }
     public void Quit()
     {
         Application.Quit();
         Debug.Log("You have quit the game, Come back next time");
-    }
-
-    private bool isValidLevel(string levelname)
-    {
-        return levelname == "Level1" || levelname == "Level2" || 
-                levelname == "Level3" || levelname == "Level4";
     }
 }
