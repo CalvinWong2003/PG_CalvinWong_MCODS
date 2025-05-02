@@ -7,8 +7,8 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
 {
     public GameObject Player;
     Image Blue;
-    float numberOfUses = 2f;
-    float numberOfUseLimit;
+    float numberOfUses;
+    float numberOfUseLimit = 2f;
     internal int healArmorAmount = 25;
 
     public void AddUse()
@@ -26,7 +26,7 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
                 Blue = i;
             }
         }
-        numberOfUseLimit = numberOfUses;
+        numberOfUses = numberOfUseLimit;
     }
 
     internal void useArmorPlating()
@@ -40,6 +40,7 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
                 if(playerArmor != null)
                 {
                     playerArmor.Heal(healArmorAmount);
+                    numberOfUses--;
                 }
                 Debug.Log("Number of Armor Plates left: " + numberOfUses);
             }
@@ -47,7 +48,6 @@ public class CW_ArmorPlating : MonoBehaviour, IUsable
             {
                 Debug.Log("No Armor Plates available!!!");
             }
-            numberOfUses--;
         }
     }
 
